@@ -20,7 +20,7 @@ public class DoorAI : ButtonListener
         updateState();
     }
 
-    public override void onButtonTrigger(ButtonAI source)
+    public override void onButtonTrigger(GameObject source)
     {
         closed = !closed;
         updateState();

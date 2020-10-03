@@ -44,7 +44,7 @@ public class PitfallAI : ButtonListener
         }
     }
 
-    public override void onButtonTrigger(ButtonAI source)
+    public override void onButtonTrigger(GameObject source)
     {
         isOpen = !isOpen;
         if (_playerObject && isOpen)
