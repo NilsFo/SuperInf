@@ -36,7 +36,7 @@ public class DartTrapAI : ButtonListener
         }
     }
 
-    public override void onButtonTrigger(ButtonAI source)
+    public override void onButtonTrigger(GameObject source)
     {
         active = !active;
         deltaCounter = 0;
