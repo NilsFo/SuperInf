@@ -149,24 +149,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 387824314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e5ac92bc18f545cc84cd886ece82b4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 70a432e1ded03944fa8ad48c7d2a8fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editorData:
     _bezierPath:
       points:
-      - {x: 0.484536, y: -3.2948244, z: 0}
-      - {x: -0.09442693, y: -2.6109326, z: 0}
-      - {x: -0.2057926, y: 2.6050587, z: 0}
-      - {x: 0.7942074, y: 3.1050587, z: 0}
-      - {x: 2.1432567, y: 3.779582, z: 0}
-      - {x: 6.2707043, y: 3.3391008, z: 0}
-      - {x: 7.039253, y: 3.440536, z: 0}
-      - {x: 10.290952, y: 3.869704, z: 0}
-      - {x: 9.515108, y: -0.029461384, z: 0}
-      - {x: 7.2973127, y: -3.1141822, z: 0}
-      - {x: 6.2914214, y: -4.5132713, z: 0}
-      - {x: 1.1365637, y: -4.065023, z: 0}
+      - {x: -2, y: 0, z: 0}
+      - {x: -1.2578189, y: 3.3360167, z: 0}
+      - {x: 1.6623968, y: 1.0658444, z: 0}
+      - {x: 2, y: 0, z: 0}
+      - {x: 3.9951093, y: -6.2987432, z: 0}
+      - {x: -2.4343314, y: -1.9522684, z: 0}
       isClosed: 1
       space: 1
       controlMode: 0
@@ -176,8 +170,6 @@ MonoBehaviour:
         m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 2, y: 0.14433756, z: 0}
       perAnchorNormalsAngle:
-      - 0
-      - 0
       - 0
       - 0
       globalNormalsAngle: 0
@@ -211,8 +203,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387824314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.99, y: 0, z: 0}
+  m_LocalScale: {x: 1.0375, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -275,12 +267,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9c53c5629eaf32d4cb3fda1684af7c90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da44bb5e924258d4d907cddefbbb1385, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -375,12 +367,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4057d726edf3c624b9d60534c130a434, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b9060fcedfa424438ab1aeef310addf, type: 3}
   m_Color: {r: 0.8773585, g: 0.11173906, b: 0.11173906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -409,7 +401,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 855521094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8d4dae0b270b44d8315cf68c365b3a, type: 3}
+  m_Script: {fileID: 11500000, guid: ba925a214bd19fb48b7b3dcb1be6fa71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myPathCreator: {fileID: 387824315}
