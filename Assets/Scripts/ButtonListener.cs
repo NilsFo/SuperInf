@@ -4,5 +4,9 @@ using UnityEngine;
 
 public abstract class ButtonListener : MonoBehaviour
 {
-    public abstract void onButtonTrigger(GameObject source);
+    public abstract void OnButtonTrigger(GameObject source);
+    
+    public abstract void OnButtonTriggerEnter(GameObject source);
+    
+    public abstract void OnButtonTriggerExit(GameObject source);
 }

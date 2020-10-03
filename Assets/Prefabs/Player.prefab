@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5311768824745295352}
   - component: {fileID: 5311768824745295353}
-  - component: {fileID: 5311768824745295359}
   - component: {fileID: 5311768824745295357}
   - component: {fileID: 5311768824745295358}
+  - component: {fileID: 5311768824745295359}
+  - component: {fileID: 5410139754833915537}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -86,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5311768824745295359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5311768824745295354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb46a31ed63a9f94e852286e7a0378d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  cameraInHand: {fileID: 5311768824261480331}
-  projectorPrefab: {fileID: 7515958916842746259, guid: 7ba341ba399a4534c9bb7c5e9cc0b858, type: 3}
 --- !u!50 &5311768824745295357
 Rigidbody2D:
   serializedVersion: 4
@@ -148,6 +134,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
+--- !u!114 &5311768824745295359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311768824745295354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb46a31ed63a9f94e852286e7a0378d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  cameraInHand: {fileID: 5311768824261480331}
+  projectorPrefab: {fileID: 7515958916842746259, guid: 7ba341ba399a4534c9bb7c5e9cc0b858, type: 3}
+--- !u!114 &5410139754833915537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5311768824745295354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d8cfec5f22b354c8a8b7ecfe7b38f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myWeight: 1
 --- !u!1001 &7322287398747901157
 PrefabInstance:
   m_ObjectHideFlags: 0

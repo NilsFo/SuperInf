@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3566823745499365320}
   - component: {fileID: 3566823745499365321}
-  - component: {fileID: 389918629825203562}
   - component: {fileID: 7013875230734945990}
   - component: {fileID: 3716469017761396201}
+  - component: {fileID: 389918629825203562}
+  - component: {fileID: 3892807048318239990}
   m_Layer: 0
   m_Name: DartProjectile
   m_TagString: Untagged
@@ -85,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &389918629825203562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3566823745499365322}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4cf34342355944ba875e0cc90bbb34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &7013875230734945990
 Rigidbody2D:
   serializedVersion: 4
@@ -144,3 +133,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &389918629825203562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566823745499365322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4cf34342355944ba875e0cc90bbb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &3892807048318239990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566823745499365322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f050683bcd164b548895b18515545f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharpness: 1

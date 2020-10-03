@@ -50,7 +50,8 @@ public class RopeAI : MonoBehaviour
             for (int i = 0; i < buttonListener.Length; i++)
             {
                 ButtonListener myListener = buttonListener[i];
-                myListener.onButtonTrigger(gameObject);
+                myListener.OnButtonTrigger(gameObject);
+                myListener.OnButtonTriggerEnter(gameObject);
             }
             
             isBurned = true;
