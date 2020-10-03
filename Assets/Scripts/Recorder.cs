@@ -6,13 +6,13 @@ public class Recorder : MonoBehaviour
 {
     public Collider2D recordingArea;
     private float recordingStartTime;
-    private enum Recordingstatus: ushort {
+    public enum Recordingstatus: ushort {
         NO_RECORDING,
         START_RECORDING,
         RECORDING_ACTIVE,
         STOP_RECORDING
     }
-    private Recordingstatus recordingstatus = Recordingstatus.NO_RECORDING;
+    public Recordingstatus recordingstatus = Recordingstatus.NO_RECORDING;
     Recording lastRecording = null;
 
     public Recording GetLastRecording() {

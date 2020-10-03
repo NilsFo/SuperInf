@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,14 @@ public class PlayerController : MonoBehaviour
     public float speed = 1.0f;
     public Recorder cameraInHand;
     public Projector projectorPrefab;
+    private int _lookDirection;
+    public int LookDirection { 
+        get{return _lookDirection;}
+        set{_lookDirection = value; 
+        UpdateDirection();}
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +27,30 @@ public class PlayerController : MonoBehaviour
     {
         float x = 0, y = 0;
         if(Input.GetKey(KeyCode.W))
-            y += speed*Time.deltaTime;
+            y += 1;
         if(Input.GetKey(KeyCode.S))
-            y -= speed*Time.deltaTime;
+            y -= 1;
         if(Input.GetKey(KeyCode.A))
-            x -= speed*Time.deltaTime;
+            x -= 1;
         if(Input.GetKey(KeyCode.D))
-            x += speed*Time.deltaTime;
-        transform.localPosition = new Vector3(transform.localPosition.x + x, transform.localPosition.y + y, transform.localPosition.z);
+            x += 1;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(x, y).normalized * speed;
+
+        // Find out look direction
+        if((cameraInHand?.recordingstatus ?? Recorder.Recordingstatus.NO_RECORDING) == Recorder.Recordingstatus.NO_RECORDING) {
+            if(x > 0) {
+                LookDirection = 1;
+            }
+            else if(x < 0) {
+                LookDirection = 3;
+            }
+            else if(y < 0) {
+                LookDirection = 2;
+            }
+            else if(y > 0) {
+                LookDirection = 0;
+            }
+        }
 
 
         if(Input.GetKeyDown(KeyCode.E)) {
@@ -41,11 +66,40 @@ public class PlayerController : MonoBehaviour
                     }
                 } else {
                     // Put it down and start
-                    var p = Instantiate<Projector>(projectorPrefab, cameraInHand.transform.position, this.transform.rotation);
+                    var p = Instantiate<Projector>(projectorPrefab, cameraInHand.transform.position, cameraInHand.transform.rotation);
                     p.StartProjection(cameraInHand.GetLastRecording());
                     cameraInHand.gameObject.SetActive(false);
                 }
             }
+        }
+    }
+    
+    private void UpdateDirection()
+    {
+        // TODO: Update Sprite
+
+        // set camera direction
+        switch(_lookDirection) {
+            case 0: // Up
+                if(cameraInHand != null)
+                    cameraInHand.transform.localPosition = new Vector3(0,0.326f,-0.017f);
+                    cameraInHand.transform.rotation = new Quaternion(0,0,0.707106829f,0.707106829f);
+                break;
+            case 1: // Right
+                if(cameraInHand != null)
+                    cameraInHand.transform.localPosition = new Vector3(0.27f,-0.02f,-0.017f);
+                    cameraInHand.transform.rotation = new Quaternion(0,0,0,1);
+                break;
+            case 2: // Down
+                if(cameraInHand != null)
+                    cameraInHand.transform.localPosition = new Vector3(0,-0.171f,-0.017f);
+                    cameraInHand.transform.rotation = new Quaternion(0,0,-0.707106829f,0.707106829f);
+                break;
+            default: // Left
+                if(cameraInHand != null)
+                    cameraInHand.transform.localPosition = new Vector3(-0.27f,-0.02f,-0.017f);
+                    cameraInHand.transform.rotation = new Quaternion(0,0,1,0);
+                break;
         }
     }
 }
