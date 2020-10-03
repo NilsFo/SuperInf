@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public Transform objToRecord;
     public Projector projector;
     public Collider2D recordingArea;
     private float recordingStartTime;
@@ -36,7 +35,8 @@ public class Recorder : MonoBehaviour
             
         }
         if(Input.GetKeyDown(KeyCode.X)) {
-            projector.StartRecording(lastRecording);
+            var p = Instantiate<Projector>(projector, this.transform.position, this.transform.rotation);
+            p.StartProjection(lastRecording);
         }
     }
 
@@ -71,15 +71,14 @@ public class Recorder : MonoBehaviour
         c.layerMask = LayerMask.NameToLayer("Default");
         
 
-        List<Collider2D> results = new List<Collider2D>();
+        /*List<Collider2D> results = new List<Collider2D>();
         int num = Physics2D.OverlapCollider(recordingArea, c, results);
         if(num == 0) {
             return null;
-        }
+        }*/
         List<GameObject> objs = new List<GameObject>();
-        foreach(var r in results) {
-            if(r.gameObject.tag.Contains("Recordable"))
-                objs.Add(r.gameObject);
+        foreach(var r in GameObject.FindGameObjectsWithTag("Recordable")) {
+            objs.Add(r.gameObject);
         }
         if(objs.Count == 0)
             return null;
