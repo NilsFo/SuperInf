@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DoorAI : ButtonListener
-
 {
 
     public bool closed = false;
@@ -21,15 +20,8 @@ public class DoorAI : ButtonListener
         updateState();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void onButtonTrigger(ButtonAI source)
     {
-        
-    }
-
-    public override void onButtonTrigger(buttonAI source)
-    {
-        Debug.Log("My Button was pushed");
         closed = !closed;
         updateState();
     }
@@ -46,7 +38,5 @@ public class DoorAI : ButtonListener
             spriteRenderer.sprite = openSprite;
             collider2D.enabled = true;
         }
-
-
     }
 }
