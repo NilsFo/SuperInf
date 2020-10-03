@@ -4,6 +4,5 @@ using UnityEngine;
 
 public abstract class ButtonListener : MonoBehaviour
 {
-
-    public abstract void onButtonTrigger(buttonAI source);
+    public abstract void onButtonTrigger(ButtonAI source);
 }

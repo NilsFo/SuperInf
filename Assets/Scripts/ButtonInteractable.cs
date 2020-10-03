@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ButtonInteractable : MonoBehaviour
 {
+    public enum Weight
+    {
+        Light = 0, 
+        Medium = 1, 
+        Heavy = 2
+    };
 
-    public enum weight {light,medium,heavy };
-
-    public weight myWeight;
+    public Weight myWeight;
 }
