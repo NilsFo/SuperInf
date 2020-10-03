@@ -11,9 +11,9 @@ public class RecordingFrame {
         this.recordedObject = recordedObject;
     }
     public RecordingFrame Capture(float timestamp, Transform referenceFrame) {
-        x = referenceFrame.transform.position.x - recordedObject.transform.position.x;
-        y = referenceFrame.transform.position.y - recordedObject.transform.position.y;
-        z = referenceFrame.transform.position.z - recordedObject.transform.position.z;
+        x = recordedObject.transform.position.x - referenceFrame.transform.position.x;
+        y = recordedObject.transform.position.y - referenceFrame.transform.position.y;
+        z = recordedObject.transform.position.z - referenceFrame.transform.position.z;
         this.timestamp = timestamp;
         return this;
     }
