@@ -11,7 +11,7 @@ public class WalkScript : MonoBehaviour
         OffPath,
         OnPath
     }
-
+    
     public PathCreator myPathCreator;
     public float speed = 2f;
     public Transform target;

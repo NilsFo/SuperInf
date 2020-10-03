@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 387824316}
   - component: {fileID: 387824315}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782510590}
   - component: {fileID: 782510589}
+  - component: {fileID: 782510591}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -299,6 +300,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &782510591
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782510588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5599997
 --- !u!1 &855521094
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 855521096}
   - component: {fileID: 855521095}
+  - component: {fileID: 855521098}
   - component: {fileID: 855521097}
   m_Layer: 0
   m_Name: Enemy
@@ -397,6 +415,22 @@ MonoBehaviour:
   myPathCreator: {fileID: 387824315}
   speed: 2
   target: {fileID: 0}
+--- !u!58 &855521098
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855521094}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.64
 --- !u!1 &2099153046
 GameObject:
   m_ObjectHideFlags: 0
