@@ -22,7 +22,7 @@ public class ButtonAI : MonoBehaviour
                 for (int i = 0; i < myListener.Length; i++)
                 {
                     ButtonListener thisListerner = myListener[i];
-                    thisListerner.onButtonTrigger(this);
+                    thisListerner.onButtonTrigger(gameObject);
                 }
                 
             }

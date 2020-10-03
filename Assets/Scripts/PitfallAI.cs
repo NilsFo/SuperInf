@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class PitfallAI : ButtonListener
 {
-    public static int maxPhase = 2;
-    public static int phase = 0;
-
+    private GameObject _playerObject;
+    
     public bool isOpen = false;
     public Sprite openSprite;
     public Sprite closedSprite;
     public SpriteRenderer spriteRenderer;
+    public Transform tpPos;
     
     private bool _renderState;
 
@@ -44,8 +44,29 @@ public class PitfallAI : ButtonListener
         }
     }
 
-    public override void onButtonTrigger(ButtonAI source)
+    public override void onButtonTrigger(GameObject source)
     {
-        phase++;
+        isOpen = !isOpen;
+        if (_playerObject && isOpen)
+        {
+            _playerObject.transform.position = tpPos.position;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            _playerObject = other.gameObject;
+            if (isOpen)
+            {
+                _playerObject.transform.position = tpPos.position;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        _playerObject = null;
     }
 }
