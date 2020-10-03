@@ -10,7 +10,7 @@ public class Projection : MonoBehaviour
     void Start()
     {
         mycollider2D = GetComponent<Collider2D>();
-        tag = "Projection";
+        gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
     }
 
     // Update is called once per frame
@@ -23,14 +23,14 @@ public class Projection : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col){
         if(col == projectorCollider) {
             //Debug.Log("Enable projection "+ this);
-            tag = "Projection";
+            gameObject.layer = LayerMask.NameToLayer("Projection");
         }
     }
 
     void OnTriggerExit2D(Collider2D collider) {
         if(collider == projectorCollider) {
             //Debug.Log("Disable projection " + this);
-            tag = "ProjectionInvisible";
+            gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
         }
     }
 }

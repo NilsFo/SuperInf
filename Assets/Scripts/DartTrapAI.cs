@@ -25,7 +25,7 @@ public class DartTrapAI : ButtonListener
     // Update is called once per frame
     void Update()
     {
-        if (active)
+        if (active && gameObject.layer != LayerMask.NameToLayer("ProjectionInvisible"))
         {
             //print("Getting ready to fire: "+ deltaCounter+"/"+ projectileCooldown);
             deltaCounter += Time.deltaTime;

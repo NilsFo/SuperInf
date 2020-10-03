@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 7515958917160231352}
   - component: {fileID: 7515958917160231359}
   - component: {fileID: 7515958917160231353}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ProjectionArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

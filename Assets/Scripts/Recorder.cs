@@ -64,8 +64,8 @@ public class Recorder : MonoBehaviour
     }
 
     public List<GameObject> getObjectsToRecord() {
-        var c = new ContactFilter2D();
-        c.layerMask = LayerMask.NameToLayer("Default");
+        //var c = new ContactFilter2D();
+        //c.layerMask = LayerMask.NameToLayer("Default");
         
 
         /*List<Collider2D> results = new List<Collider2D>();
