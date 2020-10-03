@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projector : MonoBehaviour
 {
+    public Collider2D recordingArea;
+
     private Recording recording;
     private float playbackTime;
     private int playbackFrame;
@@ -45,16 +47,20 @@ public class Projector : MonoBehaviour
 
     }
 
-    public void StartRecording(Recording r) {
+    public void StartProjection(Recording r) {
         if(r == null) {
             Debug.Log("Nothing to play back");
             this.recording = null;
+            return;
         }
         this.recording = r;
         foreach(var g in recording.recordedObjects) {
             var projection = Instantiate(g, recording.frames[g][0].GetPosition(), Quaternion.identity, this.transform);
             var p = projection.AddComponent<Projection>();
-            p.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            p.projectorCollider = recordingArea;
+            var sprite = p.GetComponent<SpriteRenderer>();
+            sprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            sprite.color = new Color(1,1,1,0.5f);
             projections.Add(p);
             frameIterators.Add(p, recording.frames[g]);
             playbackFrame = 1;

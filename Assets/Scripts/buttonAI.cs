@@ -4,37 +4,27 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static ButtonInteractable;
 
-public class buttonAI : MonoBehaviour
+public class ButtonAI : MonoBehaviour
 
 {
-    public weight requiredWight;
-    public ButtonListener myListener;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        print("I am a button");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Weight requiredWight;
+    public ButtonListener[] myListener;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject source = other.gameObject;
         ButtonInteractable bti = source.GetComponent<ButtonInteractable>();
-        print("This button triggered by: " + source.GetType());
         if (bti)
         {
-            print("I have a correct button");
-            weight sourceWeight = bti.myWeight;
-            if (sourceWeight == requiredWight)
+            Weight sourceWeight = bti.myWeight;
+            if (sourceWeight >= requiredWight)
             {
-                print("Weight requirement done. Notifying Target.");
-                myListener.onButtonTrigger(this);
+                for (int i = 0; i < myListener.Length; i++)
+                {
+                    ButtonListener thisListerner = myListener[i];
+                    thisListerner.onButtonTrigger(gameObject);
+                }
+                
             }
         }
     }
