@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public Projector projector;
     public Collider2D recordingArea;
     private float recordingStartTime;
     private enum Recordingstatus: ushort {
@@ -14,7 +13,11 @@ public class Recorder : MonoBehaviour
         STOP_RECORDING
     }
     private Recordingstatus recordingstatus = Recordingstatus.NO_RECORDING;
-    Recording lastRecording;
+    Recording lastRecording = null;
+
+    public Recording GetLastRecording() {
+        return lastRecording;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +28,11 @@ public class Recorder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(recordingstatus == Recordingstatus.NO_RECORDING && Input.GetKeyDown(KeyCode.Space)) {
+        if(recordingstatus == Recordingstatus.NO_RECORDING && Input.GetKeyDown(KeyCode.Mouse0)) {
             recordingstatus = Recordingstatus.START_RECORDING;
         }
-        if(recordingstatus == Recordingstatus.RECORDING_ACTIVE && Input.GetKeyDown(KeyCode.Space)) {
+        if(recordingstatus == Recordingstatus.RECORDING_ACTIVE && Input.GetKeyDown(KeyCode.Mouse0)) {
             recordingstatus = Recordingstatus.STOP_RECORDING;
-            foreach(var v in lastRecording.frames.Values)
-                Debug.Log(v);
-            
-        }
-        if(Input.GetKeyDown(KeyCode.X)) {
-            var p = Instantiate<Projector>(projector, this.transform.position, this.transform.rotation);
-            p.StartProjection(lastRecording);
         }
     }
 
@@ -63,6 +59,7 @@ public class Recorder : MonoBehaviour
             lastRecording.recordFrame(t, this.transform);
             lastRecording.FinishRecording(t);
             recordingstatus = Recordingstatus.NO_RECORDING;
+            Debug.Log("Recording end");
         }
     }
 

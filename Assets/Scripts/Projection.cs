@@ -22,14 +22,14 @@ public class Projection : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col){
         if(col == projectorCollider) {
-            Debug.Log("Enable projection "+ this);
+            //Debug.Log("Enable projection "+ this);
             tag = "Projection";
         }
     }
 
     void OnTriggerExit2D(Collider2D collider) {
         if(collider == projectorCollider) {
-            Debug.Log("Disable projection " + this);
+            //Debug.Log("Disable projection " + this);
             tag = "ProjectionInvisible";
         }
     }

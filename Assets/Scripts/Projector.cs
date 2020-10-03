@@ -51,6 +51,7 @@ public class Projector : MonoBehaviour
         if(r == null) {
             Debug.Log("Nothing to play back");
             this.recording = null;
+            return;
         }
         this.recording = r;
         foreach(var g in recording.recordedObjects) {
