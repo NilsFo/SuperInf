@@ -36,7 +36,7 @@ public class DartTrapAI : ButtonListener
         }
     }
 
-    public override void onButtonTrigger(GameObject source)
+    public override void OnButtonTrigger(GameObject source)
     {
         active = !active;
         deltaCounter = 0;
@@ -62,5 +62,15 @@ public class DartTrapAI : ButtonListener
         {
             dpi.velocity = velocity;
         }
+    }
+
+    public override void OnButtonTriggerEnter(GameObject source)
+    {
+        
+    }
+
+    public override void OnButtonTriggerExit(GameObject source)
+    {
+        
     }
 }

@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class DoorAI : ButtonListener
 {
-
+    public bool needSignal = false;
     public bool closed = false;
     public Sprite openSprite;
     public Sprite closedSprite;
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D collider2D;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,32 @@ public class DoorAI : ButtonListener
         updateState();
     }
 
-    public override void onButtonTrigger(GameObject source)
+    public override void OnButtonTrigger(GameObject source)
     {
-        closed = !closed;
-        updateState();
+        if (!needSignal)
+        {
+            closed = !closed;
+            updateState();
+        }
+        
+    }
+
+    public override void OnButtonTriggerEnter(GameObject source)
+    {
+        if (needSignal)
+        {
+            closed = false;
+            updateState();
+        }
+    }
+
+    public override void OnButtonTriggerExit(GameObject source)
+    {
+        if (needSignal)
+        {
+            closed = true;
+            updateState();
+        }
     }
 
     private void updateState()

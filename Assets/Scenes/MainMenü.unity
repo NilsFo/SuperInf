@@ -819,7 +819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cc9d688e5de534db9da99a4b767192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: []
+  levelName:
+  - Level1
   canvasList:
   - {fileID: 1457333404}
   - {fileID: 152786624}

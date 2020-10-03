@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 1.0f;
+    public float speed = 20.0f;
     public Recorder cameraInHand;
     public Projector projectorPrefab;
     private int _lookDirection;
@@ -19,13 +19,23 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+    public new Rigidbody2D rigidbody2D;
+
+    private Vector2 velocity = new Vector2();
         
+
+    private void FixedUpdate()
+    {
+        rigidbody2D.velocity = velocity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float x = 0, y = 0;
+        float x = 0;
+        float y = 0;
         if(Input.GetKey(KeyCode.W))
             y += 1;
         if(Input.GetKey(KeyCode.S))
@@ -34,7 +44,7 @@ public class PlayerController : MonoBehaviour
             x -= 1;
         if(Input.GetKey(KeyCode.D))
             x += 1;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(x, y).normalized * speed;
+        velocity = new Vector2(x, y).normalized * speed;
 
         // Find out look direction
         if((cameraInHand?.recordingstatus ?? Recorder.Recordingstatus.NO_RECORDING) == Recorder.Recordingstatus.NO_RECORDING) {
@@ -52,15 +62,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-
         if(Input.GetKeyDown(KeyCode.E)) {
-            if(cameraInHand != null) {
+            if(cameraInHand) {
                 if(!cameraInHand.gameObject.activeInHierarchy) {
                     // Try to pick up
                     List<Collider2D> colliders = new List<Collider2D>();
                     GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliders);
                     var projector = colliders.Find(c => c.GetComponentInParent<Projector>() != null);
-                    if(projector != null) {
+                    if(projector) {
                         Destroy(projector.transform.parent.gameObject);
                         cameraInHand.gameObject.SetActive(true);
                     }

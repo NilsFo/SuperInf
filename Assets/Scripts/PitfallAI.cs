@@ -44,13 +44,23 @@ public class PitfallAI : ButtonListener
         }
     }
 
-    public override void onButtonTrigger(GameObject source)
+    public override void OnButtonTrigger(GameObject source)
     {
         isOpen = !isOpen;
         if (_playerObject && isOpen)
         {
             _playerObject.transform.position = tpPos.position;
         }
+    }
+
+    public override void OnButtonTriggerEnter(GameObject source)
+    {
+        
+    }
+
+    public override void OnButtonTriggerExit(GameObject source)
+    {
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
