@@ -143,11 +143,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 554011689595122796, guid: 65c2d0f660b2fd24784db169ff72459f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.92
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 554011689595122796, guid: 65c2d0f660b2fd24784db169ff72459f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: -1.86
       objectReference: {fileID: 0}
     - target: {fileID: 554011689595122796, guid: 65c2d0f660b2fd24784db169ff72459f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -293,6 +293,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5983875879181591533, guid: 3b00d0b174720334dbc3b0ff62cb190c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8111360613678702293, guid: 3b00d0b174720334dbc3b0ff62cb190c, type: 3}
       propertyPath: m_Name
       value: ToggleButton

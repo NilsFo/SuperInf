@@ -58,7 +58,9 @@ public class Projector : MonoBehaviour
             var projection = Instantiate(g, recording.frames[g][0].GetPosition(), Quaternion.identity, this.transform);
             var p = projection.AddComponent<Projection>();
             p.projectorCollider = recordingArea;
-            p.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            var sprite = p.GetComponent<SpriteRenderer>();
+            sprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            sprite.color = new Color(1,1,1,0.5f);
             projections.Add(p);
             frameIterators.Add(p, recording.frames[g]);
             playbackFrame = 1;
