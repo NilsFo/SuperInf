@@ -11,6 +11,22 @@ public class Projection : MonoBehaviour
     {
         mycollider2D = GetComponent<Collider2D>();
         gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
+        var darttrap = GetComponent<DartTrapAI>();
+        if(darttrap != null) {
+            var dir = transform.right;
+            if(dir.x > 0.1) {
+                darttrap.direction=(DartTrapAI.Direction)((1+(int)darttrap.direction)%4);
+            }
+            else if(dir.x < -0.1) {
+                darttrap.direction=(DartTrapAI.Direction)((3+(int)darttrap.direction)%4);
+            }
+            else if(dir.y < -0.1) {
+                darttrap.direction=(DartTrapAI.Direction)((2+(int)darttrap.direction)%4);
+            }
+            else if(dir.y > 0.1) {
+                darttrap.direction=(DartTrapAI.Direction)((0+(int)darttrap.direction)%4);
+            }
+        }
     }
 
     // Update is called once per frame

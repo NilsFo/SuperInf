@@ -85,7 +85,9 @@ public class Projector : MonoBehaviour
         }
         this.recording = r;
         foreach(var g in recording.recordedObjects) {
-            var projection = Instantiate(g, recording.frames[g][0].GetPosition(), Quaternion.identity, this.transform);
+            var projection = Instantiate(g, this.transform);
+            projection.transform.localPosition = recording.frames[g][0].GetPosition();
+            projection.transform.localRotation = g.transform.localRotation;
             var p = projection.AddComponent<Projection>();
             p.projectorCollider = recordingArea;
             var sprite = p.GetComponent<SpriteRenderer>();
