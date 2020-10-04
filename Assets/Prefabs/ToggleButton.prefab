@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offSprite: {fileID: 21300000, guid: 2b9005b4effc33e49a9e1955027ee31e, type: 3}
   pressedSprite: {fileID: 21300000, guid: 9c25a7460be08324a9c025057ae068b5, type: 3}
-  requiredWight: 0
+  requiredWight: 1
   myListener: []
   pressedTime: 1
 --- !u!58 &5983875879181591533
