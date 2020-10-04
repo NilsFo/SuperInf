@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Profiling;
 using static Sharp;
 
 public class DartProjectileAI : MonoBehaviour
@@ -38,6 +39,20 @@ public class DartProjectileAI : MonoBehaviour
     {
         print("The dart projectile has connected with "+ target + "! Haha, die, Trash!");
         Destroy(this.gameObject);
+
+        //Collision with Player:
+        PlayerController pc = target.GetComponent<PlayerController>();
+        if (pc)
+        {
+            pc.OnDartHit();
+        }
+
+        //Collission with Camera:
+        Recorder rc = target.GetComponent<Recorder>();
+        if (rc)
+        {
+            rc.OnDartHit();
+        }
     }
 
     private void LateUpdate()

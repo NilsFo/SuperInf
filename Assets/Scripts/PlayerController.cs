@@ -150,4 +150,10 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
+    public void OnDartHit()
+    {
+        //TODO implement
+    }
+
 }
