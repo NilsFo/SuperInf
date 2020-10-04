@@ -20,32 +20,23 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -6863239735992183117, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: -6863239735992183117, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.083333336
-      value: {fileID: 1223795553322859235, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: 1223795553322859235, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.16666667
-      value: {fileID: 8564560160475922896, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: 8564560160475922896, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.25
-      value: {fileID: 8564560160475922896, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: 8564560160475922896, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.33333334
-      value: {fileID: -695010219342419505, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: -695010219342419505, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.41666666
-      value: {fileID: -7637986958684588172, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: -7637986958684588172, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.5
-      value: {fileID: -1266164439681914657, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: -1266164439681914657, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.5833333
-      value: {fileID: -7058548356431807470, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: -7058548356431807470, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     - time: 0.6666667
-      value: {fileID: -6863239735992183117, guid: 386de275b51e55c41a5336e6496bd5a2,
-        type: 3}
+      value: {fileID: -6863239735992183117, guid: 386de275b51e55c41a5336e6496bd5a2, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
