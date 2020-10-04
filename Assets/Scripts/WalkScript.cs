@@ -42,6 +42,7 @@ public class WalkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var oldPosition = transform.position;
         if (_currentWalkState == WalkState.OffPath && _pointToWalk.magnitude != 0)
         {
             float maxDistance = speed * Time.deltaTime;
@@ -73,6 +74,8 @@ public class WalkScript : MonoBehaviour
             }
             transform.position = myPathCreator.path.GetPointAtDistance(_distanceTraveled);
         }
+        var deltaPos = transform.position - oldPosition;
+        
     }
 
     private void FixedUpdate()
