@@ -12,6 +12,7 @@ public class DoorAI : ButtonListener
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D collider2D;
     public float cooldown = 1f;
+    public Animator anim;
 
     private float _lastChangeTimer;
     
@@ -20,11 +21,14 @@ public class DoorAI : ButtonListener
     {
         updateState();
         _lastChangeTimer = cooldown;
+        anim = GetComponent<Animator>();
+
     }
 
     private void Update()
     {
         _lastChangeTimer += Time.deltaTime;
+     
     }
 
     public override void OnButtonTrigger(GameObject source)
@@ -63,11 +67,14 @@ public class DoorAI : ButtonListener
         {
             spriteRenderer.sprite = closedSprite;
             collider2D.enabled = true;
+            anim.SetBool("open", false);
+            
         }
         else
         {
             spriteRenderer.sprite = openSprite;
             collider2D.enabled = false;
+            anim.SetBool("open", true);
         }
     }
 }

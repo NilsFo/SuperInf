@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1037498963726291063}
   - component: {fileID: 1037498963726291061}
   - component: {fileID: 1037498963726291060}
+  - component: {fileID: 1810983658}
   m_Layer: 0
   m_Name: ToggleDoor
   m_TagString: Untagged
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b0a14be3787892140ae7565d0039188b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -103,6 +104,8 @@ MonoBehaviour:
   closedSprite: {fileID: 21300000, guid: c50691ab79e269d498762f1a4e6b7b5b, type: 3}
   spriteRenderer: {fileID: 1037498963726291057}
   collider2D: {fileID: 1037498963726291061}
+  cooldown: 1
+  anim: {fileID: 0}
 --- !u!61 &1037498963726291061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +153,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1810983658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037498963726291056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4717883093152d042afa34d996c4c32e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
