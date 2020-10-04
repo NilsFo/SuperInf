@@ -10,11 +10,14 @@ public class DartProjectileAI : MonoBehaviour
     public GameObject mySpawner;
     private float lifespan = 10;
     private float deltaCounter;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         print("Ruun! This Dart projectile is coming for you!!");
+        anim = GetComponent<Animator>();
+        anim.SetBool("burning", false);
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class DartProjectileAI : MonoBehaviour
         {
             Sharp sh = GetComponent<Sharp>();
             sh.sharpness = Sharpness.Burning;
+            anim.SetBool("burning", true);
             return;
         }
 
