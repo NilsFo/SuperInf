@@ -30,7 +30,7 @@ public class HoldButtonAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
+        //Debug.Log(other);
         GameObject source = other.gameObject;
         ButtonInteractable bti = source.GetComponent<ButtonInteractable>();
         if (bti)

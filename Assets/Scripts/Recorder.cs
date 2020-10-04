@@ -58,14 +58,14 @@ public class Recorder : MonoBehaviour
     }
 
     private void StartRecording() {
-        Debug.Log("Recording Start");
+        //Debug.Log("Recording Start");
         RemoveLastRecordingStillframes();
 
         recordingstatus = Recordingstatus.RECORDING_ACTIVE;
         recordingStartTime = Time.time;
         var objrec = getObjectsToRecord();
         if(objrec == null) {
-            Debug.Log("Nothing to record");
+            //Debug.Log("Nothing to record");
             recordingstatus = Recordingstatus.NO_RECORDING;
             return;
         }
@@ -87,7 +87,7 @@ public class Recorder : MonoBehaviour
         lastRecording.recordFrame(t, this.transform);
         lastRecording.FinishRecording(t);
         recordingstatus = Recordingstatus.NO_RECORDING;
-        Debug.Log("Recording end");
+        //Debug.Log("Recording end");
 
         // Visual & Audio stuff
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.2f);
@@ -101,7 +101,7 @@ public class Recorder : MonoBehaviour
         }
         
         foreach(var g in lastRecording.recordedObjects) {
-            Debug.Log(lastRecording.frames[g][0].GetPosition());
+            //Debug.Log(lastRecording.frames[g][0].GetPosition());
             var projection = Instantiate(g, this.transform);
             projection.transform.localPosition = lastRecording.frames[g][0].GetPosition();
             var p = projection.AddComponent<Projection>();

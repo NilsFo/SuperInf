@@ -28,18 +28,26 @@ public class WalkScript : MonoBehaviour
     void Start()
     {
         _currentWalkState = WalkState.OffPath;
-        _maxDistanceTraveled = myPathCreator.path.length;
+        if (myPathCreator)
+        {
+            _maxDistanceTraveled = myPathCreator.path.length;
+        }
+        else
+        {
+            _maxDistanceTraveled = 0;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_currentWalkState == WalkState.OffPath)
+        if (_currentWalkState == WalkState.OffPath && _pointToWalk.magnitude != 0)
         {
             float maxDistance = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, _pointToWalk, maxDistance);
         } 
-        else if (_currentWalkState == WalkState.OnPath)
+        else if (_currentWalkState == WalkState.OnPath && myPathCreator)
         {
             if (!myPathCreator.path.isClosedLoop)
             {
@@ -92,7 +100,7 @@ public class WalkScript : MonoBehaviour
         }
         else
         {
-            if (_currentWalkState == WalkState.OffPath)
+            if (_currentWalkState == WalkState.OffPath && myPathCreator)
             {
                 _distanceTraveled = myPathCreator.path.GetClosestDistanceAlongPath(transform.position);
                 _pointToWalk = myPathCreator.path.GetPointAtDistance(_distanceTraveled);
