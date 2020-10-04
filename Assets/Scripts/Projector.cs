@@ -20,25 +20,25 @@ public class Projector : MonoBehaviour
     {
         // Check direction
         var dir = transform.right;
-        if(dir.x > 0) {
+        if(dir.x > 0.1) {
             cameraSpriteRight.gameObject.SetActive(true);
             cameraSpriteLeft.gameObject.SetActive(false);
             cameraSpriteDown.gameObject.SetActive(false);
             cameraSpriteUp.gameObject.SetActive(false);
         }
-        else if(dir.x < 0) {
+        else if(dir.x < -0.1) {
             cameraSpriteRight.gameObject.SetActive(false);
             cameraSpriteLeft.gameObject.SetActive(true);
             cameraSpriteDown.gameObject.SetActive(false);
             cameraSpriteUp.gameObject.SetActive(false);
         }
-        else if(dir.y > 0) {
+        else if(dir.y < -0.1) {
             cameraSpriteRight.gameObject.SetActive(false);
             cameraSpriteLeft.gameObject.SetActive(false);
             cameraSpriteDown.gameObject.SetActive(true);
             cameraSpriteUp.gameObject.SetActive(false);
         }
-        else if(dir.y < 0) {
+        else if(dir.y > 0.1) {
             cameraSpriteRight.gameObject.SetActive(false);
             cameraSpriteLeft.gameObject.SetActive(false);
             cameraSpriteDown.gameObject.SetActive(false);
