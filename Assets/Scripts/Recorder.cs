@@ -81,7 +81,7 @@ public class Recorder : MonoBehaviour
         Debug.Log("Recording end");
 
         // Visual & Audio stuff
-        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.1f);
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.2f);
         ShowLastRecordingStillframe();
     }
 
