@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,11 @@ public class LevelUIBehaviour : MonoBehaviour
         rectImg = recStatusImage.GetComponent<Image>();
         recStatusImage.SetActive(false);
         print("Level UI Status img: " + rectImg);
+
+        if (!recStatusImage)
+        {
+            throw new Exception("Level UI has no correct REC img. Did you hook up the camera to the UI?");
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +52,11 @@ public class LevelUIBehaviour : MonoBehaviour
 
     public void StopRecording()
     {
+        if (!recStatusImage)
+        {
+            throw new Exception("Level UI has no correct REC img. Did you hook up the camera to the UI?");
+        }
+
         print("UI is no longer recording: "+ rectImg);
         recording = false;
         deltaCounter = 0;

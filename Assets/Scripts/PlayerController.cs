@@ -214,4 +214,10 @@ public class PlayerController : MonoBehaviour
         cam.transform.position = transform.position + camPos;
         cam.orthographicSize = viewField;
     }
+
+    public void OnDartHit()
+    {
+        //TODO implement
+    }
+
 }

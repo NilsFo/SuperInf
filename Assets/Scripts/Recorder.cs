@@ -139,4 +139,10 @@ public class Recorder : MonoBehaviour
         return objs;
     }
 
+    public void OnDartHit()
+    {
+        //TODO implement
+    }
+
+
 }
