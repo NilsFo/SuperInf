@@ -39,28 +39,46 @@ public class Recorder : MonoBehaviour
     void FixedUpdate() 
     {
         if(recordingstatus == Recordingstatus.START_RECORDING) {
-            Debug.Log("Recording Start");
-            recordingstatus = Recordingstatus.RECORDING_ACTIVE;
-            recordingStartTime = Time.time;
-            var objrec = getObjectsToRecord();
-            if(objrec == null) {
-                Debug.Log("Nothing to record");
-                recordingstatus = Recordingstatus.NO_RECORDING;
-                return;
-            }
-            lastRecording = new Recording(getObjectsToRecord());
-            lastRecording.recordFrame(0, this.transform);
+            StartRecording();
         }
         else if(recordingstatus == Recordingstatus.RECORDING_ACTIVE) {
-            lastRecording.recordFrame(Time.time - recordingStartTime, this.transform);
+            RecordFrame();
         }
         else if(recordingstatus == Recordingstatus.STOP_RECORDING) {
-            var t = Time.time - recordingStartTime;
-            lastRecording.recordFrame(t, this.transform);
-            lastRecording.FinishRecording(t);
-            recordingstatus = Recordingstatus.NO_RECORDING;
-            Debug.Log("Recording end");
+            StopRecording();
         }
+    }
+
+    private void StartRecording() {
+        Debug.Log("Recording Start");
+        recordingstatus = Recordingstatus.RECORDING_ACTIVE;
+        recordingStartTime = Time.time;
+        var objrec = getObjectsToRecord();
+        if(objrec == null) {
+            Debug.Log("Nothing to record");
+            recordingstatus = Recordingstatus.NO_RECORDING;
+            return;
+        }
+        lastRecording = new Recording(getObjectsToRecord());
+        lastRecording.recordFrame(0, this.transform);
+
+        // Visual & Audio stuff
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.4f);
+    }
+
+    private void RecordFrame() {
+        lastRecording.recordFrame(Time.time - recordingStartTime, this.transform);
+    }
+
+    private void StopRecording() {
+        var t = Time.time - recordingStartTime;
+        lastRecording.recordFrame(t, this.transform);
+        lastRecording.FinishRecording(t);
+        recordingstatus = Recordingstatus.NO_RECORDING;
+        Debug.Log("Recording end");
+
+        // Visual & Audio stuff
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.1f);
     }
 
     public List<GameObject> getObjectsToRecord() {
