@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        anim.SetBool("idle", true);
         cam = Camera.main;
     }
     public new Rigidbody2D rigidbody2D;

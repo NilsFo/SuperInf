@@ -74,7 +74,7 @@ public class Recorder : MonoBehaviour
 
         // Visual & Audio stuff
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.4f);
-        levelUI.StartRecording();
+        levelUI?.StartRecording();
     }
 
 
@@ -92,7 +92,7 @@ public class Recorder : MonoBehaviour
         // Visual & Audio stuff
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.2f);
         ShowLastRecordingStillframe();
-        levelUI.StopRecording();
+        levelUI?.StopRecording();
     }
 
     public void ShowLastRecordingStillframe() {

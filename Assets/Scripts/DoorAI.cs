@@ -10,7 +10,7 @@ public class DoorAI : ButtonListener
     public Sprite openSprite;
     public Sprite closedSprite;
     private SpriteRenderer spriteRenderer;
-    private BoxCollider2D collider2D;
+    private new BoxCollider2D collider2D;
     
 
     // Start is called before the first frame update

@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class BrazierAI : ButtonListener
 {
-
-    public Sprite burningSprite;
-    public Sprite offSprite;
     public bool burning = true;
     public float lightRadius = 15f;
 
-    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = gameObject.GetComponent<Animator>();
         updateState();
     }
 
@@ -35,11 +32,13 @@ public class BrazierAI : ButtonListener
     {
         if (burning)
         {
-            spriteRenderer.sprite = burningSprite;
+            animator.Play("BrazierAnim");
+            GetComponentInChildren<Light>().enabled = true;
         }
         else
         {
-            spriteRenderer.sprite = offSprite;
+            animator.Play("BrazierIdle");
+            GetComponentInChildren<Light>().enabled = false;
         }
     }
 
