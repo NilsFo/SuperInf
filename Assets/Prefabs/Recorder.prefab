@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recordingArea: {fileID: 3182580396004143206}
+  levelUIManagerObj: {fileID: 153052902149506240, guid: 24e2ed7c07a9c9b439abd34ceb359e47,
+    type: 3}
   recordingstatus: 0
 --- !u!1 &4456776552737210796
 GameObject:

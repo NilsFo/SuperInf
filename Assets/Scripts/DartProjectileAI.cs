@@ -65,7 +65,6 @@ public class DartProjectileAI : MonoBehaviour
             return;
         }
 
-
         // Collision with anything else. Let's hit.
         OnDartHit(source);
     }
