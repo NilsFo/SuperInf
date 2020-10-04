@@ -48,17 +48,18 @@ public class PlayerController : MonoBehaviour
 
         // Find out look direction
         if((cameraInHand?.recordingstatus ?? Recorder.Recordingstatus.NO_RECORDING) == Recorder.Recordingstatus.NO_RECORDING) {
-            if(x > 0) {
-                LookDirection = 1;
-            }
-            else if(x < 0) {
-                LookDirection = 3;
-            }
-            else if(y < 0) {
-                LookDirection = 2;
-            }
-            else if(y > 0) {
-                LookDirection = 0;
+            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos = transform.worldToLocalMatrix.MultiplyPoint(mousePos);
+            if(mousePos.x > mousePos.y) {
+                if(-mousePos.x > mousePos.y)
+                    LookDirection = 2;
+                else
+                    LookDirection = 1;
+            } else {
+                if(-mousePos.x > mousePos.y)
+                    LookDirection = 3;
+                else
+                    LookDirection = 0;
             }
         }
 

@@ -16,7 +16,8 @@ public class Projection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Make sure it is facing upwards
+        transform.rotation = Quaternion.identity;
     }
 
 

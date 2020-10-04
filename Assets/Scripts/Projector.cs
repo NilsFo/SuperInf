@@ -20,7 +20,6 @@ public class Projector : MonoBehaviour
     {
         // Check direction
         var dir = transform.right;
-        Debug.Log(dir);
         if(dir.x > 0) {
             cameraSpriteRight.gameObject.SetActive(true);
             cameraSpriteLeft.gameObject.SetActive(false);
