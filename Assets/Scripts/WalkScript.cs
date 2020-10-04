@@ -24,6 +24,9 @@ public class WalkScript : MonoBehaviour
 
     private WalkState _currentWalkState;
 
+    private Animator _anim;
+    private SpriteRenderer _sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +39,15 @@ public class WalkScript : MonoBehaviour
         {
             _maxDistanceTraveled = 0;
         }
+        _anim = GetComponent<Animator>();
+        _sprite = GetComponent<SpriteRenderer>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        var oldPosition = transform.position;
         if (_currentWalkState == WalkState.OffPath && _pointToWalk.magnitude != 0)
         {
             float maxDistance = speed * Time.deltaTime;
@@ -73,6 +79,33 @@ public class WalkScript : MonoBehaviour
             }
             transform.position = myPathCreator.path.GetPointAtDistance(_distanceTraveled);
         }
+        var deltaPos = transform.position - oldPosition;
+        if(_anim != null) {
+            if(deltaPos.x > deltaPos.y) {
+                if(-deltaPos.x > deltaPos.y){
+                    // Down
+                    _anim.Play("cat_down");
+                    _sprite.flipX = false;
+                }
+                else{
+                    // Right
+                    _anim.Play("cat_right");
+                    _sprite.flipX = true;
+                }
+            } else {
+                if(-deltaPos.x > deltaPos.y){
+                    // Left
+                    _anim.Play("cat_left");
+                    _sprite.flipX = false;
+                }
+                else{
+                    // Up
+                    _anim.Play("cat_up");
+                    _sprite.flipX = false;
+                }
+            }
+        }
+        
     }
 
     private void FixedUpdate()

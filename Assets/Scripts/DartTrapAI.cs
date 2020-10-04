@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class DartTrapAI : ButtonListener
 {
-    public enum Direction
+    public enum Direction: UInt16
     {
         North,
         West,
-        East,
-        South
+        South,
+        East
     } 
 
     public bool active = true;
