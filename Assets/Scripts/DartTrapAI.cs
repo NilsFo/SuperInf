@@ -46,6 +46,10 @@ public class DartTrapAI : ButtonListener
     public override void OnButtonTrigger(GameObject source)
     {
         active = !active;
+        if (active)
+        {
+            SpawnProjectile();
+        }
         deltaCounter = 0;
     }
 

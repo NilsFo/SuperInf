@@ -111,6 +111,12 @@ public class Recorder : MonoBehaviour
             sprite.color = new Color(1,1,1,0.5f);
             p.gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
             p.gameObject.tag = "ProjectionInvisible";
+
+            WalkScript ws = p.GetComponent<WalkScript>();
+            if (ws)
+            {
+                ws.enabled = false;
+            }
         }
     }
 

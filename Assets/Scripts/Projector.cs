@@ -94,6 +94,12 @@ public class Projector : MonoBehaviour
             projections.Add(p);
             frameIterators.Add(p, recording.frames[g]);
             playbackFrame = 1;
+
+            WalkScript ws = p.GetComponent<WalkScript>();
+            if (ws)
+            {
+                ws.enabled = false;
+            }
         }
 
     }
