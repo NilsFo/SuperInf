@@ -88,7 +88,7 @@ public class HoldButtonAI : MonoBehaviour
         {
             ButtonListener thisListerner = myListener[i];
             thisListerner.OnButtonTrigger(gameObject);
-            thisListerner.OnButtonTriggerEnter(gameObject);
+            thisListerner.OnButtonTriggerExit(gameObject);
         }
     }
 

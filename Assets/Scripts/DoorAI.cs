@@ -11,25 +11,16 @@ public class DoorAI : ButtonListener
     public Sprite closedSprite;
     public SpriteRenderer spriteRenderer;
     public new BoxCollider2D collider2D;
-    public float cooldown = 1f;
-    public Animator anim;
+    private Animator anim;
 
-    private float _lastChangeTimer;
-    
     // Start is called before the first frame update
     void Start()
     {
-        updateState();
-        _lastChangeTimer = cooldown;
         anim = GetComponent<Animator>();
+        updateState();
 
     }
 
-    private void Update()
-    {
-        _lastChangeTimer += Time.deltaTime;
-     
-    }
 
     public override void OnButtonTrigger(GameObject source)
     {
@@ -37,19 +28,15 @@ public class DoorAI : ButtonListener
 
     public override void OnButtonTriggerEnter(GameObject source)
     {
-        if (_lastChangeTimer >= cooldown)
+        if (needSignal)
         {
-            if (needSignal)
-            {
-                closed = false;
-            }
-            else
-            {
-                closed = !closed;
-            }
-            updateState();
-            _lastChangeTimer = 0;
+            closed = false;
         }
+        else
+        {
+            closed = !closed;
+        }
+        updateState();
     }
 
     public override void OnButtonTriggerExit(GameObject source)
