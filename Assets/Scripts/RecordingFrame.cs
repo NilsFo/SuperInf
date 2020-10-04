@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class RecordingFrame {
     GameObject recordedObject;
-    public float x, y, z;
+    public Vector3 pos;
     public float timestamp;
     // Possible animations?
     public RecordingFrame(GameObject recordedObject) {
         this.recordedObject = recordedObject;
     }
     public RecordingFrame Capture(float timestamp, Transform referenceFrame) {
-        x = recordedObject.transform.position.x - referenceFrame.transform.position.x;
-        y = recordedObject.transform.position.y - referenceFrame.transform.position.y;
-        z = recordedObject.transform.position.z - referenceFrame.transform.position.z;
+        Vector3 p = recordedObject.transform.position;
+        this.pos = referenceFrame.worldToLocalMatrix.MultiplyPoint(p);
         this.timestamp = timestamp;
         return this;
     }
 
     public override string ToString() {
-        return recordedObject + " at time " + timestamp + "; " + x + ", " + y + ", " + z;
+        return recordedObject + " at time " + timestamp + "; " + pos;
     }
 
     public Vector3 GetPosition() {
-        return new Vector3(x,y,z);
+        return pos;
     }
 }

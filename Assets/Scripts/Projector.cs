@@ -5,6 +5,10 @@ using UnityEngine;
 public class Projector : MonoBehaviour
 {
     public Collider2D recordingArea;
+    public SpriteRenderer cameraSpriteRight;
+    public SpriteRenderer cameraSpriteLeft;
+    public SpriteRenderer cameraSpriteUp;
+    public SpriteRenderer cameraSpriteDown;
 
     private Recording recording;
     private float playbackTime;
@@ -14,7 +18,33 @@ public class Projector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Check direction
+        var dir = transform.right;
+        if(dir.x > 0) {
+            cameraSpriteRight.gameObject.SetActive(true);
+            cameraSpriteLeft.gameObject.SetActive(false);
+            cameraSpriteDown.gameObject.SetActive(false);
+            cameraSpriteUp.gameObject.SetActive(false);
+        }
+        else if(dir.x < 0) {
+            cameraSpriteRight.gameObject.SetActive(false);
+            cameraSpriteLeft.gameObject.SetActive(true);
+            cameraSpriteDown.gameObject.SetActive(false);
+            cameraSpriteUp.gameObject.SetActive(false);
+        }
+        else if(dir.y > 0) {
+            cameraSpriteRight.gameObject.SetActive(false);
+            cameraSpriteLeft.gameObject.SetActive(false);
+            cameraSpriteDown.gameObject.SetActive(true);
+            cameraSpriteUp.gameObject.SetActive(false);
+        }
+        else if(dir.y < 0) {
+            cameraSpriteRight.gameObject.SetActive(false);
+            cameraSpriteLeft.gameObject.SetActive(false);
+            cameraSpriteDown.gameObject.SetActive(false);
+            cameraSpriteUp.gameObject.SetActive(true);
+        }
+
     }
 
     // Update is called once per frame

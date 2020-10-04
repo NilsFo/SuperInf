@@ -6,13 +6,13 @@ public class Recorder : MonoBehaviour
 {
     public Collider2D recordingArea;
     private float recordingStartTime;
-    private enum Recordingstatus: ushort {
+    public enum Recordingstatus: ushort {
         NO_RECORDING,
         START_RECORDING,
         RECORDING_ACTIVE,
         STOP_RECORDING
     }
-    private Recordingstatus recordingstatus = Recordingstatus.NO_RECORDING;
+    public Recordingstatus recordingstatus = Recordingstatus.NO_RECORDING;
     Recording lastRecording = null;
 
     public Recording GetLastRecording() {
@@ -39,30 +39,77 @@ public class Recorder : MonoBehaviour
     void FixedUpdate() 
     {
         if(recordingstatus == Recordingstatus.START_RECORDING) {
-            Debug.Log("Recording Start");
-            recordingstatus = Recordingstatus.RECORDING_ACTIVE;
-            recordingStartTime = Time.time;
-            var objrec = getObjectsToRecord();
-            if(objrec == null) {
-                Debug.Log("Nothing to record");
-                recordingstatus = Recordingstatus.NO_RECORDING;
-                return;
-            }
-            lastRecording = new Recording(getObjectsToRecord());
-            lastRecording.recordFrame(0, this.transform);
+            StartRecording();
         }
         else if(recordingstatus == Recordingstatus.RECORDING_ACTIVE) {
-            lastRecording.recordFrame(Time.time - recordingStartTime, this.transform);
+            RecordFrame();
         }
         else if(recordingstatus == Recordingstatus.STOP_RECORDING) {
-            var t = Time.time - recordingStartTime;
-            lastRecording.recordFrame(t, this.transform);
-            lastRecording.FinishRecording(t);
-            recordingstatus = Recordingstatus.NO_RECORDING;
-            Debug.Log("Recording end");
+            StopRecording();
         }
     }
 
+    private void StartRecording() {
+        Debug.Log("Recording Start");
+        RemoveLastRecordingStillframes();
+
+        recordingstatus = Recordingstatus.RECORDING_ACTIVE;
+        recordingStartTime = Time.time;
+        var objrec = getObjectsToRecord();
+        if(objrec == null) {
+            Debug.Log("Nothing to record");
+            recordingstatus = Recordingstatus.NO_RECORDING;
+            return;
+        }
+        lastRecording = new Recording(getObjectsToRecord());
+        lastRecording.recordFrame(0, this.transform);
+
+        // Visual & Audio stuff
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.4f);
+    }
+
+
+    private void RecordFrame() {
+        lastRecording.recordFrame(Time.time - recordingStartTime, this.transform);
+    }
+
+    private void StopRecording() {
+        var t = Time.time - recordingStartTime;
+        lastRecording.recordFrame(t, this.transform);
+        lastRecording.FinishRecording(t);
+        recordingstatus = Recordingstatus.NO_RECORDING;
+        Debug.Log("Recording end");
+
+        // Visual & Audio stuff
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.1f);
+        ShowLastRecordingStillframe();
+    }
+
+    public void ShowLastRecordingStillframe() {
+        if(lastRecording == null) {
+            return;
+        }
+        
+        foreach(var g in lastRecording.recordedObjects) {
+            Debug.Log(lastRecording.frames[g][0].GetPosition());
+            var projection = Instantiate(g, this.transform);
+            projection.transform.localPosition = lastRecording.frames[g][0].GetPosition();
+            var p = projection.AddComponent<Projection>();
+            p.projectorCollider = recordingArea;
+            var sprite = p.GetComponent<SpriteRenderer>();
+            sprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            sprite.color = new Color(1,1,1,0.5f);
+            p.gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
+            p.gameObject.tag = "ProjectionInvisible";
+        }
+    }
+
+    private void RemoveLastRecordingStillframes()
+    {
+        foreach(var c in GetComponentsInChildren<Projection>()) {
+            Destroy(c.gameObject);
+        }
+    }
     public List<GameObject> getObjectsToRecord() {
         //var c = new ContactFilter2D();
         //c.layerMask = LayerMask.NameToLayer("Default");

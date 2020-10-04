@@ -5,7 +5,8 @@ using UnityEngine;
 public class DartProjectileAI : MonoBehaviour
 {
 
-    public Vector3 velocity = new Vector3(0,0,0);
+    public Vector3 velocity = new Vector3(0, 0, 0);
+    public GameObject mySpawner;
     private float lifespan = 10;
     private float deltaCounter;
 
@@ -29,12 +30,41 @@ public class DartProjectileAI : MonoBehaviour
         transform.position = new Vector3(x + xv, y + yv, z + zv);
     }
 
+    private void OnDartHit(GameObject target)
+    {
+        print("The dart projectile has connected with "+ target + "! Haha, die, Trash!");
+        Destroy(this.gameObject);
+    }
+
     private void LateUpdate()
-    { 
+    {
         deltaCounter += Time.deltaTime;
         if (deltaCounter >= lifespan)
         {
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        GameObject source = other.gameObject;
+
+        // Check if colliding with a Brazier
+        BrazierAI bzai = source.GetComponent<BrazierAI>();
+        if (bzai && bzai.burning)
+        {
+            //TODO SET BURNING AT THIS POINT
+            return;
+        }
+
+        // Check if colliding with the original spawning Dart Trap.
+        if(source == mySpawner)
+        {
+            return;
+        }
+
+
+        // Collision with anything else. Let's hit.
+        OnDartHit(source);
     }
 }
