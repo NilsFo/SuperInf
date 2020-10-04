@@ -9,34 +9,42 @@ public class DoorAI : ButtonListener
     public bool closed = false;
     public Sprite openSprite;
     public Sprite closedSprite;
-    private SpriteRenderer spriteRenderer;
-    private BoxCollider2D collider2D;
-    
+    public SpriteRenderer spriteRenderer;
+    public BoxCollider2D collider2D;
+    public float cooldown = 1f;
 
+    private float _lastChangeTimer;
+    
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer=gameObject.GetComponent<SpriteRenderer>();
-        collider2D = gameObject.GetComponent<BoxCollider2D>();
         updateState();
+        _lastChangeTimer = cooldown;
+    }
+
+    private void Update()
+    {
+        _lastChangeTimer += Time.deltaTime;
     }
 
     public override void OnButtonTrigger(GameObject source)
     {
-        if (!needSignal)
-        {
-            closed = !closed;
-            updateState();
-        }
-        
     }
 
     public override void OnButtonTriggerEnter(GameObject source)
     {
-        if (needSignal)
+        if (_lastChangeTimer >= cooldown)
         {
-            closed = false;
+            if (needSignal)
+            {
+                closed = false;
+            }
+            else
+            {
+                closed = !closed;
+            }
             updateState();
+            _lastChangeTimer = 0;
         }
     }
 
@@ -54,12 +62,12 @@ public class DoorAI : ButtonListener
         if (closed)
         {
             spriteRenderer.sprite = closedSprite;
-            collider2D.enabled = false;
+            collider2D.enabled = true;
         }
         else
         {
             spriteRenderer.sprite = openSprite;
-            collider2D.enabled = true;
+            collider2D.enabled = false;
         }
     }
 }
