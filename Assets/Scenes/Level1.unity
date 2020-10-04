@@ -2799,11 +2799,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ToggleDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 1037498963726291057, guid: be08256427638ec43aa21d0eab388599,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b0a14be3787892140ae7565d0039188b, type: 2}
     - target: {fileID: 1037498963726291062, guid: be08256427638ec43aa21d0eab388599,
         type: 3}
       propertyPath: m_LocalPosition.x
