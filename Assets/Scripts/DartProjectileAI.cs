@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Sharp;
 
 public class DartProjectileAI : MonoBehaviour
 {
@@ -53,7 +54,8 @@ public class DartProjectileAI : MonoBehaviour
         BrazierAI bzai = source.GetComponent<BrazierAI>();
         if (bzai && bzai.burning)
         {
-            //TODO SET BURNING AT THIS POINT
+            Sharp sh = GetComponent<Sharp>();
+            sh.sharpness = Sharpness.Burning;
             return;
         }
 
@@ -62,7 +64,6 @@ public class DartProjectileAI : MonoBehaviour
         {
             return;
         }
-
 
         // Collision with anything else. Let's hit.
         OnDartHit(source);

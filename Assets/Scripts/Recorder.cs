@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Recorder : MonoBehaviour
 {
     public Collider2D recordingArea;
+    public GameObject levelUIManagerObj;
+
     private float recordingStartTime;
+    private LevelUIBehaviour levelUI;
+
     public enum Recordingstatus: ushort {
         NO_RECORDING,
         START_RECORDING,
@@ -22,7 +27,8 @@ public class Recorder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelUI = levelUIManagerObj.GetComponent<LevelUIBehaviour>();
+        print("Recorder here. This is my UI: " + levelUI);
     }
 
     // Update is called once per frame
@@ -41,9 +47,11 @@ public class Recorder : MonoBehaviour
         if(recordingstatus == Recordingstatus.START_RECORDING) {
             StartRecording();
         }
+
         else if(recordingstatus == Recordingstatus.RECORDING_ACTIVE) {
             RecordFrame();
         }
+
         else if(recordingstatus == Recordingstatus.STOP_RECORDING) {
             StopRecording();
         }
@@ -66,6 +74,7 @@ public class Recorder : MonoBehaviour
 
         // Visual & Audio stuff
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.4f);
+        levelUI.StartRecording();
     }
 
 
@@ -81,8 +90,9 @@ public class Recorder : MonoBehaviour
         Debug.Log("Recording end");
 
         // Visual & Audio stuff
-        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.1f);
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.2f);
         ShowLastRecordingStillframe();
+        levelUI.StopRecording();
     }
 
     public void ShowLastRecordingStillframe() {
@@ -128,4 +138,5 @@ public class Recorder : MonoBehaviour
             return null;
         return objs;
     }
+
 }
