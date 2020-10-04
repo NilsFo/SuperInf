@@ -10,7 +10,7 @@ public class ButtonAI : MonoBehaviour
 {
     public Weight requiredWight;
     public ButtonListener[] myListener;
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other);
@@ -30,6 +30,8 @@ public class ButtonAI : MonoBehaviour
                 
             }
         }
+
+        throw new Exception("Old button AI used. Please use new one.");
     }
 
     private void OnTriggerExit2D(Collider2D other)

@@ -6,6 +6,7 @@ public class DartProjectileAI : MonoBehaviour
 {
 
     public Vector3 velocity = new Vector3(0, 0, 0);
+    public GameObject mySpawner;
     private float lifespan = 10;
     private float deltaCounter;
 
@@ -44,10 +45,11 @@ public class DartProjectileAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject source = other.gameObject;
 
+        // Check if colliding with a Brazier
         BrazierAI bzai = source.GetComponent<BrazierAI>();
         if (bzai && bzai.burning)
         {
@@ -55,10 +57,14 @@ public class DartProjectileAI : MonoBehaviour
             return;
         }
 
-        DartTrapAI dtai = source.GetComponent<DartTrapAI>();
-        if (!dtai)
+        // Check if colliding with the original spawning Dart Trap.
+        if(source == mySpawner)
         {
-            OnDartHit(source);
+            return;
         }
+
+
+        // Collision with anything else. Let's hit.
+        OnDartHit(source);
     }
 }

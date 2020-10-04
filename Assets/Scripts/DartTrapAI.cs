@@ -61,6 +61,7 @@ public class DartTrapAI : ButtonListener
         if (dpi)
         {
             dpi.velocity = velocity;
+            dpi.mySpawner = this.gameObject;
         }
     }
 

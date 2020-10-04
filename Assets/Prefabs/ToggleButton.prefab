@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8111360613678702313}
   - component: {fileID: 8111360613678702314}
   - component: {fileID: 8111360613678702312}
-  - component: {fileID: 8111360613678702294}
+  - component: {fileID: 9194504326082482947}
   - component: {fileID: 5983875879181591533}
   m_Layer: 0
   m_Name: ToggleButton
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8111360613678702294
+--- !u!114 &9194504326082482947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,11 +115,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8111360613678702293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e7acc785cac6645b26379cd7bd473f, type: 3}
+  m_Script: {fileID: 11500000, guid: ad9dca79f999a7d4b9c33f37f4eaf31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offSprite: {fileID: 21300000, guid: 2b9005b4effc33e49a9e1955027ee31e, type: 3}
+  pressedSprite: {fileID: 21300000, guid: 9c25a7460be08324a9c025057ae068b5, type: 3}
   requiredWight: 0
   myListener: []
+  pressedTime: 1
 --- !u!58 &5983875879181591533
 CircleCollider2D:
   m_ObjectHideFlags: 0
