@@ -79,7 +79,7 @@ public class Projector : MonoBehaviour
 
     public void StartProjection(Recording r) {
         if(r == null) {
-            Debug.Log("Nothing to play back");
+            //Debug.Log("Nothing to play back");
             this.recording = null;
             return;
         }

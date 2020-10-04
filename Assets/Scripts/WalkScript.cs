@@ -15,8 +15,11 @@ public class WalkScript : MonoBehaviour
     public PathCreator myPathCreator;
     public float speed = 2f;
     public Transform target;
-    
+    public List<GameObject> avoid = new List<GameObject>();
+
+    private bool _forward = true;
     private float _distanceTraveled;
+    private float _maxDistanceTraveled;
     private Vector3 _pointToWalk;
 
     private WalkState _currentWalkState;
@@ -25,6 +28,7 @@ public class WalkScript : MonoBehaviour
     void Start()
     {
         _currentWalkState = WalkState.OffPath;
+        _maxDistanceTraveled = myPathCreator.path.length;
     }
 
     // Update is called once per frame
@@ -37,17 +41,54 @@ public class WalkScript : MonoBehaviour
         } 
         else if (_currentWalkState == WalkState.OnPath)
         {
-            _distanceTraveled += speed * Time.deltaTime;
+            if (!myPathCreator.path.isClosedLoop)
+            {
+                if (_distanceTraveled >= _maxDistanceTraveled)
+                {
+                    _forward = false;
+                    _distanceTraveled = _maxDistanceTraveled;
+                }
+                else if(_distanceTraveled <= 0)
+                {
+                    _forward = true;
+                    _distanceTraveled = 0;
+                }
+            }
+
+            if (_forward)
+            {
+                _distanceTraveled += speed * Time.deltaTime;
+            }
+            else
+            {
+                _distanceTraveled -= speed * Time.deltaTime;
+            }
             transform.position = myPathCreator.path.GetPointAtDistance(_distanceTraveled);
         }
     }
 
     private void FixedUpdate()
     {
-        if (target)
+        Vector3 myPosition = transform.position;
+        if (target || avoid.Count > 0)
         {
             _currentWalkState = WalkState.OffPath;
-            _pointToWalk = target.position;
+            if (avoid.Count > 0)
+            {
+                Vector2 myNewDirection = Vector2.zero;
+                Vector2 myVector = new Vector2(myPosition.x, myPosition.y);;
+                for (int i = 0; i < avoid.Count; i++)
+                {
+                    Vector2 direction = myVector - new Vector2(avoid[i].transform.position.x, avoid[i].transform.position.y);
+                    myNewDirection += direction;
+                }
+                myNewDirection = (myNewDirection / avoid.Count);
+                _pointToWalk = new Vector3(myPosition.x + myNewDirection.x, myPosition.y + myNewDirection.y, myPosition.z);
+            }
+            else
+            {
+                _pointToWalk = new Vector3(target.position.x, target.position.y, myPosition.z);
+            }
         }
         else
         {
@@ -55,12 +96,34 @@ public class WalkScript : MonoBehaviour
             {
                 _distanceTraveled = myPathCreator.path.GetClosestDistanceAlongPath(transform.position);
                 _pointToWalk = myPathCreator.path.GetPointAtDistance(_distanceTraveled);
-                float currentDistance = Vector3.Distance(transform.position, _pointToWalk);
+                _pointToWalk.z = myPosition.z;
+                float currentDistance = Vector3.Distance(myPosition, _pointToWalk);
                 if (currentDistance < 0.2f) //Done
                 {
                     _currentWalkState = WalkState.OnPath;
                 }
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Feared myFeared = other.gameObject.GetComponent<Feared>();
+        if (myFeared)
+        {
+            for (int i = 0; i < myFeared.byName.Length; i++)
+            {
+                if (myFeared.byName[i] == gameObject.name)
+                {
+                    avoid.Add(other.gameObject);
+                    i = myFeared.byName.Length;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        avoid.Remove(other.gameObject);
     }
 }
