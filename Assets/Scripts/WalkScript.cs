@@ -119,19 +119,21 @@ public class WalkScript : MonoBehaviour
         Feared myFeared = other.gameObject.GetComponent<Feared>();
         if (myFeared)
         {
-            for (int i = 0; i < myFeared.byName.Length; i++)
-            {
-                if (myFeared.byName[i] == gameObject.name)
-                {
-                    avoid.Add(other.gameObject);
-                    i = myFeared.byName.Length;
-                }
-            }
+            avoid.Add(other.gameObject);
+        }
+        Tasty myTasty = other.gameObject.GetComponent<Tasty>();
+        if (myTasty)
+        {
+            target = other.gameObject.transform;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         avoid.Remove(other.gameObject);
+        if (target && target == other.gameObject.transform)
+        {
+            target = null;
+        }
     }
 }

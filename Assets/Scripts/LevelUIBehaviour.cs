@@ -10,7 +10,7 @@ public class LevelUIBehaviour : MonoBehaviour
     public Sprite recordingSprite;
     public Sprite pauseSprite;
     public Sprite playSprite;
-    public float recordingBlinkSpeed=8f;
+    public float recordingBlinkSpeed = 8f;
 
     public GameObject recStatusImage;
 
@@ -23,7 +23,6 @@ public class LevelUIBehaviour : MonoBehaviour
     {
         rectImg = recStatusImage.GetComponent<Image>();
         recStatusImage.SetActive(false);
-        print("Level UI Status img: " + rectImg);
 
         if (!recStatusImage)
         {
@@ -39,14 +38,12 @@ public class LevelUIBehaviour : MonoBehaviour
             deltaCounter += Time.deltaTime;
             float s = Mathf.Sin(deltaCounter * recordingBlinkSpeed);
             bool b = s > 0;
-            print("s: " + s + ". b: " + b);
             recStatusImage.SetActive(b);
         }
     }
 
     public void StartRecording()
     {
-        print("UI is recording: "+ rectImg);
         recording = true;
     }
 
@@ -56,8 +53,7 @@ public class LevelUIBehaviour : MonoBehaviour
         {
             throw new Exception("Level UI has no correct REC img. Did you hook up the camera to the UI?");
         }
-
-        print("UI is no longer recording: "+ rectImg);
+        
         recording = false;
         deltaCounter = 0;
         recStatusImage.SetActive(false);

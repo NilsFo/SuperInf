@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: "Assets/Scenes/MainMen\xFC.unity"
     guid: 71f72940d6e14434082f95f513d4944c
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: d02f4a8a52045eb4983a28e6dd4d8a89
+    path: Assets/Scenes/Level PQ 1.unity
+    guid: 10ca70967ee6b9142bc09ea0bc8c0f53
+  - enabled: 1
+    path: Assets/Scenes/Level PQ 2.unity
+    guid: 907ba3d21ccd64a40a90bf22a3d0ffa7
+  - enabled: 1
+    path: Assets/Scenes/Level PQ 3.unity
+    guid: 7bd582540877bd149b525ac975b00f8f
   m_configObjects: {}

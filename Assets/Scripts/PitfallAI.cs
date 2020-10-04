@@ -8,6 +8,8 @@ public class PitfallAI : ButtonListener
     private GameObject _playerObject;
     
     public bool isOpen = false;
+    public bool needSignal = true;
+    
     public Sprite openSprite;
     public Sprite closedSprite;
     public SpriteRenderer spriteRenderer;
@@ -46,6 +48,10 @@ public class PitfallAI : ButtonListener
 
     public override void OnButtonTrigger(GameObject source)
     {
+    }
+
+    public override void OnButtonTriggerEnter(GameObject source)
+    {
         isOpen = !isOpen;
         if (_playerObject && isOpen)
         {
@@ -53,14 +59,16 @@ public class PitfallAI : ButtonListener
         }
     }
 
-    public override void OnButtonTriggerEnter(GameObject source)
-    {
-        
-    }
-
     public override void OnButtonTriggerExit(GameObject source)
     {
-        
+        if (needSignal)
+        {
+            isOpen = !isOpen;
+        }
+        if (_playerObject && isOpen)
+        {
+            _playerObject.transform.position = tpPos.position;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
