@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public string[] levelName;
     public GameObject[] canvasList;
 
     public void showCanvas(int number)
@@ -24,9 +23,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void loadLevel(int number)
+    public void loadLevel(string name)
     {
-        SceneManager.LoadScene(levelName[number], LoadSceneMode.Single);
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
     }
 
     public void quitGame()
