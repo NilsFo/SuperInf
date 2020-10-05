@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PitfallAI : ButtonListener
 {
@@ -13,7 +14,8 @@ public class PitfallAI : ButtonListener
     public Sprite openSprite;
     public Sprite closedSprite;
     public SpriteRenderer spriteRenderer;
-    public Transform tpPos;
+
+    public UnityEvent onKillEvent;
     
     private bool _renderState;
 
@@ -55,7 +57,7 @@ public class PitfallAI : ButtonListener
         isOpen = !isOpen;
         if (_playerObject && isOpen)
         {
-            _playerObject.transform.position = tpPos.position;
+            onKillEvent.Invoke();
         }
     }
 
@@ -67,7 +69,7 @@ public class PitfallAI : ButtonListener
         }
         if (_playerObject && isOpen)
         {
-            _playerObject.transform.position = tpPos.position;
+            onKillEvent.Invoke();
         }
     }
 
@@ -78,7 +80,7 @@ public class PitfallAI : ButtonListener
             _playerObject = other.gameObject;
             if (isOpen)
             {
-                _playerObject.transform.position = tpPos.position;
+                onKillEvent.Invoke();
             }
         }
     }
