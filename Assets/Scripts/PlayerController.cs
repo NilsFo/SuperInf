@@ -80,15 +80,18 @@ public class PlayerController : MonoBehaviour
                     GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliders);
                     var projector = colliders.Find(c => c.GetComponentInParent<Projector>() != null);
                     if(projector) {
+                        cameraInHand.SetLastRecording(projector.GetComponentInParent<Projector>().GetRecording());
                         Destroy(projector.transform.parent.gameObject);
                         cameraInHand.gameObject.SetActive(true);
+                        cameraInHand.ShowLastRecordingStillframe();
                     }
-                } else {
+                } else if(cameraInHand.GetComponent<Recorder>().GetLastRecording()?.Finished ?? true) {
                     if((!floorTilemap?.GetTile(floorTilemap.WorldToCell(this.transform.position))?.name.Equals("gitter")) ?? true) {
                         // Put it down and start
                         var p = Instantiate<Projector>(projectorPrefab, cameraInHand.transform.position, cameraInHand.transform.rotation);
                         p.StartProjection(cameraInHand.GetLastRecording());
                         cameraInHand.gameObject.SetActive(false);
+                        cameraInHand.SetLastRecording(null);
                     }
                 }
             }

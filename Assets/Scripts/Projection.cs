@@ -7,6 +7,7 @@ public class Projection : MonoBehaviour
     public Collider2D projectorCollider;
     private Collider2D mycollider2D;
     public int direction;
+    private bool firstframe;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,27 +29,36 @@ public class Projection : MonoBehaviour
                 darttrap.direction=(DartTrapAI.Direction)((1+0-direction+(int)darttrap.direction)%4);
             }
         }
+        firstframe = true;
+        // gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
+
 
     // Update is called once per frame
     void Update()
     {
         // Make sure it is facing upwards
         transform.rotation = Quaternion.identity;
+        /*if(firstframe && !projectorCollider.IsTouching(mycollider2D)) {
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            firstframe = false;
+        }*/
     }
 
 
     void OnTriggerEnter2D(Collider2D col){
         if(col == projectorCollider) {
-            //Debug.Log("Enable projection "+ this);
+            Debug.Log("Enable projection "+ this);
             gameObject.layer = LayerMask.NameToLayer("Projection");
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D collider) {
         if(collider == projectorCollider) {
-            //Debug.Log("Disable projection " + this);
+            Debug.Log("Disable projection " + this);
             gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

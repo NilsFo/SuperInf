@@ -96,6 +96,7 @@ public class Recorder : MonoBehaviour
     }
 
     public void ShowLastRecordingStillframe() {
+        RemoveLastRecordingStillframes();
         if(lastRecording == null) {
             return;
         }
@@ -148,6 +149,10 @@ public class Recorder : MonoBehaviour
     public void OnDartHit()
     {
         //TODO implement
+    }
+
+    public void SetLastRecording(Recording recording) {
+        this.lastRecording = recording;
     }
 
 

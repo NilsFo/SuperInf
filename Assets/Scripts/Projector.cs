@@ -125,4 +125,8 @@ public class Projector : MonoBehaviour
         }
 
     }
+
+    public Recording GetRecording() {
+        return recording;
+    }
 }
