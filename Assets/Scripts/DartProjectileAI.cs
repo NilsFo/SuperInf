@@ -95,6 +95,14 @@ public class DartProjectileAI : MonoBehaviour
             return;
         }
 
+
+        // Check if colliding with pitfalls.
+        PitfallAI pfai = source.GetComponent<PitfallAI>();
+        if (pfai)
+        {
+            return;
+        }
+
         // Collision with anything else. Let's hit.
         OnDartHit(source);
     }
