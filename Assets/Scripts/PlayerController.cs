@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        // Handling Input to pick up Camera
         if(Input.GetKeyDown(KeyCode.E)) {
             if(cameraInHand) {
                 if(!cameraInHand.gameObject.activeInHierarchy) {
@@ -92,6 +93,21 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+        }
+
+        // Updating UI to inform about pickup
+        LevelUIBehaviour behav = cameraInHand.levelUIManagerObj.GetComponent<LevelUIBehaviour>();
+        behav.DisplayPickupInfo(true);
+        List<Collider2D> colliders2 = new List<Collider2D>();
+        GetComponent<Collider2D>().OverlapCollider(new ContactFilter2D(), colliders2);
+        var projector2 = colliders2.Find(c => c.GetComponentInParent<Projector>() != null);
+        if (projector2)
+        {
+            behav.DisplayPickupInfo(true);
+        }
+        else
+        {
+            behav.DisplayPickupInfo(false);
         }
     }
     

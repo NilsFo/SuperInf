@@ -867,6 +867,10 @@ PrefabInstance:
       propertyPath: recStatusImage
       value: 
       objectReference: {fileID: 1984361400}
+    - target: {fileID: 153052902149506247, guid: 24e2ed7c07a9c9b439abd34ceb359e47, type: 3}
+      propertyPath: pickupMessage
+      value: 
+      objectReference: {fileID: 333078717}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24e2ed7c07a9c9b439abd34ceb359e47, type: 3}
 --- !u!1001 &251406293
@@ -1100,6 +1104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30363d1376c94164dbbc2d5c77e55b3a, type: 3}
+--- !u!1 &333078717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8381574322782979735, guid: 30363d1376c94164dbbc2d5c77e55b3a, type: 3}
+  m_PrefabInstance: {fileID: 333078716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &341539015
 GameObject:
   m_ObjectHideFlags: 0
