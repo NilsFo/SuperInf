@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Projector projectorPrefab;
     public UnityEngine.Tilemaps.Tilemap floorTilemap;
     private int _lookDirection;
+    public string mainMenu = "MainMenü";
+
     public int LookDirection { 
         get{return _lookDirection;}
         set{_lookDirection = value; 
@@ -96,6 +98,12 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+        }
+
+        // Handling Input to get back to Main Menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(mainMenu, LoadSceneMode.Single);
         }
 
         // Updating UI to inform about pickup

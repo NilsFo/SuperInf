@@ -96,7 +96,7 @@ public class Recorder : MonoBehaviour
         levelUI?.StopRecording();
 
         // Tutorial Spagetti (Hmm, so filling!)
-        if (tutorialMessageObj)
+        if (!(tutorialMessageObj == null))
         {
             SpriteRenderer tutRenderer = tutorialMessageObj.GetComponent<SpriteRenderer>();
             tutRenderer.enabled = true;
