@@ -38,7 +38,7 @@ public class Recorder : MonoBehaviour
         if(recordingstatus == Recordingstatus.NO_RECORDING && Input.GetKeyDown(KeyCode.Mouse0)) {
             recordingstatus = Recordingstatus.START_RECORDING;
         }
-        if(recordingstatus == Recordingstatus.RECORDING_ACTIVE && Input.GetKeyDown(KeyCode.Mouse0)) {
+        if(recordingstatus == Recordingstatus.RECORDING_ACTIVE && Input.GetKeyUp(KeyCode.Mouse0)) {
             recordingstatus = Recordingstatus.STOP_RECORDING;
         }
     }
