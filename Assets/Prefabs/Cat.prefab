@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4942009266694061767}
   - component: {fileID: 4942009266694061764}
   - component: {fileID: 5667532675637793576}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cat
   m_TagString: Recordable
   m_Icon: {fileID: 0}

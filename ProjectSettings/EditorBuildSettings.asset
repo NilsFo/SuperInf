@@ -15,9 +15,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Level PQ 1.unity
     guid: 10ca70967ee6b9142bc09ea0bc8c0f53
   - enabled: 1
+    path: Assets/Scenes/DoubleTrouble.unity
+    guid: 084a9d4530fe7e84f909ceee1f01c987
+  - enabled: 1
     path: Assets/Scenes/Level PQ 2.unity
     guid: 907ba3d21ccd64a40a90bf22a3d0ffa7
   - enabled: 1
     path: Assets/Scenes/Level PQ 3.unity
     guid: 7bd582540877bd149b525ac975b00f8f
+  - enabled: 1
+    path: Assets/Scenes/LevelNils1.unity
+    guid: 30d98079d8f8db1499c1346d0087e672
+  - enabled: 1
+    path: Assets/Scenes/LevelNils2.unity
+    guid: 323d3c94608d03e4b99fc18c4a13229b
+  - enabled: 1
+    path: Assets/Scenes/TargetPractice.unity
+    guid: 5893115c7e792b54d946bd1a2cb2757b
+  - enabled: 1
+    path: Assets/Scenes/Level PQ 5.unity
+    guid: c5dcae2f161f8264ba9dc19b0e9bb9c3
   m_configObjects: {}
