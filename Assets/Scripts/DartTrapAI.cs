@@ -74,13 +74,13 @@ public class DartTrapAI : ButtonListener
                 diretionQuat = Quaternion.Euler(0, 0, 90);
                 break;
             case Direction.East:
-                diretionQuat = Quaternion.Euler(0, 0, 180);
+                diretionQuat = Quaternion.Euler(0, 0, 0);
                 break;
             case Direction.South:
                 diretionQuat = Quaternion.Euler(0, 0, -90);
                 break;
             case Direction.West:
-                diretionQuat = Quaternion.Euler(0, 0, 0);
+                diretionQuat = Quaternion.Euler(0, 0, 180);
                 break;
             default:
                 new Exception("Unknown angle!");
