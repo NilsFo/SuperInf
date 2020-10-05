@@ -16,7 +16,7 @@ public class DartProjectileAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Ruun! This Dart projectile is coming for you!!");
+        //print("Ruun! This Dart projectile is coming for you!!");
         anim = GetComponent<Animator>();
         anim.SetBool("burning", false);
     }
@@ -37,7 +37,7 @@ public class DartProjectileAI : MonoBehaviour
 
     private void OnDartHit(GameObject target)
     {
-        print("The dart projectile has connected with "+ target + "! Haha, die, Trash!");
+        //print("The dart projectile has connected with "+ target + "! Haha, die, Trash!");
         Destroy(this.gameObject);
 
         //Collision with Player:
