@@ -45,7 +45,7 @@ public class RopeAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Sharp mySharp = other.gameObject.GetComponent<Sharp>();
-        if (!isBurned && mySharp && mySharp.sharpness == Sharpness.Burning)
+        if (!isBurned && mySharp && (mySharp.sharpness == Sharpness.Burning || mySharp.sharpness == Sharpness.Normal))
         {
             for (int i = 0; i < buttonListener.Length; i++)
             {
