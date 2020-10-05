@@ -153,31 +153,32 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateAnimation()
     {
+        bool hasCam = cameraInHand.gameObject.activeInHierarchy;
         switch (_lookDirection)
         {
             case 0: // Up
                 if(velocity.sqrMagnitude == 0)
-                    anim.Play("Player_Idle_Up");
+                    if(hasCam){anim.Play("PlayerCamUpIdle");} else { anim.Play("Player_Idle_Up");}
                 else
-                    anim.Play("Player_WalkUp");
+                    if(hasCam){anim.Play("PlayerCamUp");} else { anim.Play("Player_WalkUp");}
                 break;
             case 1: // Right
                 if(velocity.sqrMagnitude == 0)
-                    anim.Play("Player_Idle_Right");
+                    if(hasCam){anim.Play("PlayerCamRightIdle");} else { anim.Play("Player_Idle_Right");}
                 else
-                    anim.Play("Player_WalkRight");
+                    if(hasCam){anim.Play("PlayerCamRight");} else { anim.Play("Player_WalkRight");}
                 break;
             case 2: // Down
                 if(velocity.sqrMagnitude == 0)
-                    anim.Play("Player_Idle_Down");
+                    if(hasCam){anim.Play("PlayerCamDownIdle");} else { anim.Play("Player_Idle_Down");}
                 else
-                    anim.Play("Player_WalkDown");
+                    if(hasCam){anim.Play("PlayerCamDown");} else { anim.Play("Player_WalkDown");}
                 break;
             default: // Left
                 if(velocity.sqrMagnitude == 0)
-                    anim.Play("Player_Idle_Left");
+                    if(hasCam){anim.Play("PlayerCamLeftIdle");} else { anim.Play("Player_Idle_Left");}
                 else
-                    anim.Play("Player_WalkLeft");
+                    if(hasCam){anim.Play("PlayerCamLeft");} else { anim.Play("Player_WalkLeft");}
                 break;
         }
     }
