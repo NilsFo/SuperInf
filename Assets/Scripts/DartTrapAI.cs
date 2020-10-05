@@ -26,7 +26,7 @@ public class DartTrapAI : ButtonListener
     void Start()
     {
         deltaCounter = 0;
-        print("Dart-Trap, reporting for duty.");
+        //print("Dart-Trap, reporting for duty.");
     }
 
     // Update is called once per frame

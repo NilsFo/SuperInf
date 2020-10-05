@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -154,9 +155,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PlayerDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     public void OnDartHit()
     {
-        //TODO implement
+        PlayerDeath();
     }
 
 }
