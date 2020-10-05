@@ -25,7 +25,7 @@ public class DartTrapAI : ButtonListener
     // Start is called before the first frame update
     void Start()
     {
-        print("Dart-Trap, reporting for duty.");
+        //print("Dart-Trap, reporting for duty.");
     }
 
     // Update is called once per frame
