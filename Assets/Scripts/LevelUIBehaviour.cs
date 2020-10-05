@@ -13,6 +13,7 @@ public class LevelUIBehaviour : MonoBehaviour
     public float recordingBlinkSpeed = 8f;
 
     public GameObject recStatusImage;
+    public GameObject pickupMessage;
 
     private Image rectImg;
     private float deltaCounter=0;
@@ -57,5 +58,10 @@ public class LevelUIBehaviour : MonoBehaviour
         recording = false;
         deltaCounter = 0;
         recStatusImage.SetActive(false);
+    }
+
+    public void DisplayPickupInfo(bool show)
+    {
+        pickupMessage.SetActive(show);
     }
 }
