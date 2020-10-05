@@ -6178,6 +6178,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5311768824745295359, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}
+      propertyPath: floorTilemap
+      value: 
+      objectReference: {fileID: 299260800}
     m_RemovedComponents:
     - {fileID: 5410139754833915537, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}

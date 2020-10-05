@@ -1244,6 +1244,10 @@ PrefabInstance:
       propertyPath: rigidbody2D
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5311768824745295359, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}
+      propertyPath: floorTilemap
+      value: 
+      objectReference: {fileID: 1048236360}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}
 --- !u!1001 &1337773339

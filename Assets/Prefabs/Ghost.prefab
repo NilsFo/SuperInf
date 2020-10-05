@@ -244,12 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d58a91f6bce2c84d9e6f9dc7233746b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killDistance: 10
+  killDistance: 1
   onKillEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5311768824745295359, guid: ff3ad0a9edbb92d4496b57a15321e031,
-          type: 3}
+      - m_Target: {fileID: 5311768824745295359, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: PlayerDeath
         m_Mode: 1
