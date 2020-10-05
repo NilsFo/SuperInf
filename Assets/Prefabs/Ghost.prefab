@@ -147,7 +147,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b0a14be3787892140ae7565d0039188b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -168,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fc5b9bc6effd3f34ea12ef2b4a104c62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c15e1032df5e9d47b43e99080ff44f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -248,7 +248,8 @@ MonoBehaviour:
   onKillEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5311768824745295359, guid: ff3ad0a9edbb92d4496b57a15321e031, type: 3}
+      - m_Target: {fileID: 5311768824745295359, guid: ff3ad0a9edbb92d4496b57a15321e031,
+          type: 3}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: PlayerDeath
         m_Mode: 1
