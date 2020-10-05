@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5050330595698810517}
   - component: {fileID: 5050330595698810514}
   - component: {fileID: 5050330595698810516}
+  - component: {fileID: 6294393120340168670}
   m_Layer: 0
   m_Name: Brazier
   m_TagString: Untagged
@@ -96,10 +97,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdb39876d47576498765c2dd7baea75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burningSprite: {fileID: 21300000, guid: 113f97e373936bf4a8c33c9ecce373ca, type: 3}
-  offSprite: {fileID: 21300000, guid: 8e69c84e23944e24d95ac68be6ffa1ef, type: 3}
   burning: 1
   lightRadius: 15
+--- !u!95 &6294393120340168670
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5050330595698810515}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9a28039cac00c0844973fb12d83d28b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5277420024074275741
 GameObject:
   m_ObjectHideFlags: 0
