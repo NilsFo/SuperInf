@@ -8,7 +8,9 @@ public class Recording {
     public bool Finished;
     public List<GameObject> recordedObjects;
     public Dictionary<GameObject,List<RecordingFrame>> frames;
-    public Recording(List<GameObject> objectsToRecord) {
+    public int direction;
+    public Recording(List<GameObject> objectsToRecord, int direction) {
+        this.direction = direction;
         recordedObjects = objectsToRecord;
         frames = new Dictionary<GameObject, List<RecordingFrame>>(objectsToRecord.Count);
         foreach(GameObject gameObject in objectsToRecord) {

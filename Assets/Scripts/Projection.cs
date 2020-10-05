@@ -6,6 +6,7 @@ public class Projection : MonoBehaviour
 {
     public Collider2D projectorCollider;
     private Collider2D mycollider2D;
+    public int direction;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,18 +14,18 @@ public class Projection : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("ProjectionInvisible");
         var darttrap = GetComponent<DartTrapAI>();
         if(darttrap != null) {
-            var dir = transform.right;
-            if(dir.x > 0.1) {
-                darttrap.direction=(DartTrapAI.Direction)((1+(int)darttrap.direction)%4);
-            }
+            var dir = transform.up;
+            if(dir.x > 0.1) { // right
+                darttrap.direction=(DartTrapAI.Direction)((1+1-direction+(int)darttrap.direction)%4);
+            } // 
             else if(dir.x < -0.1) {
-                darttrap.direction=(DartTrapAI.Direction)((3+(int)darttrap.direction)%4);
+                darttrap.direction=(DartTrapAI.Direction)((1+3-direction+(int)darttrap.direction)%4);
             }
             else if(dir.y < -0.1) {
-                darttrap.direction=(DartTrapAI.Direction)((2+(int)darttrap.direction)%4);
+                darttrap.direction=(DartTrapAI.Direction)((1+2-direction+(int)darttrap.direction)%4);
             }
             else if(dir.y > 0.1) {
-                darttrap.direction=(DartTrapAI.Direction)((0+(int)darttrap.direction)%4);
+                darttrap.direction=(DartTrapAI.Direction)((1+0-direction+(int)darttrap.direction)%4);
             }
         }
     }

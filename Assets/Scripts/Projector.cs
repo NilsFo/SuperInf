@@ -89,6 +89,7 @@ public class Projector : MonoBehaviour
             projection.transform.localPosition = recording.frames[g][0].GetPosition();
             projection.transform.localRotation = g.transform.localRotation;
             var p = projection.AddComponent<Projection>();
+            p.direction = recording.direction;
             p.projectorCollider = recordingArea;
             var sprite = p.GetComponent<SpriteRenderer>();
             sprite.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;

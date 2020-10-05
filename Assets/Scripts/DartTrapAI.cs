@@ -8,9 +8,9 @@ public class DartTrapAI : ButtonListener
     public enum Direction: UInt16
     {
         North,
-        West,
+        East,
         South,
-        East
+        West
     } 
 
     public bool active = true;

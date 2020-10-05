@@ -69,7 +69,7 @@ public class Recorder : MonoBehaviour
             recordingstatus = Recordingstatus.NO_RECORDING;
             return;
         }
-        lastRecording = new Recording(getObjectsToRecord());
+        lastRecording = new Recording(getObjectsToRecord(), GetComponentInParent<PlayerController>().LookDirection);
         lastRecording.recordFrame(0, this.transform);
 
         // Visual & Audio stuff
