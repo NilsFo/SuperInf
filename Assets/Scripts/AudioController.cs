@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    static bool played;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,12 @@ public class AudioController : MonoBehaviour
         
     }
     void Awake ()
-    {            
-        DontDestroyOnLoad(this.gameObject);
- 
+    {
+        if(!played) {
+            GetComponent<AudioSource>().Play();
+            DontDestroyOnLoad(this.gameObject);
+            played = true;
+        }
+
     }
 }

@@ -70,6 +70,8 @@ public class RopeAI : MonoBehaviour
                 myListener.OnButtonTrigger(gameObject);
                 myListener.OnButtonTriggerEnter(gameObject);
             }
+
+            GetComponent<AudioSource>().Play();
             
             isBurned = true;
             if(activateTime > 0) {
