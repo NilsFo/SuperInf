@@ -552,6 +552,10 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap
@@ -613,6 +617,10 @@ PrefabInstance:
     - target: {fileID: 1037498963726291062, guid: be08256427638ec43aa21d0eab388599, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037498963726291063, guid: be08256427638ec43aa21d0eab388599, type: 3}
+      propertyPath: needSignal
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be08256427638ec43aa21d0eab388599, type: 3}
@@ -928,6 +936,10 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap (1)
@@ -989,6 +1001,10 @@ PrefabInstance:
     - target: {fileID: 1037498963726291062, guid: be08256427638ec43aa21d0eab388599, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037498963726291063, guid: be08256427638ec43aa21d0eab388599, type: 3}
+      propertyPath: needSignal
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be08256427638ec43aa21d0eab388599, type: 3}
@@ -1069,6 +1085,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -1200,6 +1220,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -1410,6 +1434,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -1661,9 +1689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 744165020899245703, guid: be4f9a0d89ddc3d47b0ebf446f47b36e, type: 3}
       propertyPath: m_Text
-      value: 'Bodyguard
-
-'
+      value: Kitten Gauntlet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be4f9a0d89ddc3d47b0ebf446f47b36e, type: 3}
@@ -2950,20 +2976,11 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: -15, y: 2, z: 0}
+  - first: {x: -14, y: 2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 15
       m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
-  - first: {x: -14, y: 2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 22
-      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3157,20 +3174,11 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: -15, y: 3, z: 0}
+  - first: {x: -14, y: 3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 15
       m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
-  - first: {x: -14, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 22
-      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3311,7 +3319,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 9373adbd066895944b3d1e0279bdc7c6, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 2d563e4e974707745b2399bb2ca34822, type: 2}
-  - m_RefCount: 36
+  - m_RefCount: 34
     m_Data: {fileID: 11400000, guid: 9d671182f1826e84abeda6b7419b2170, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -3330,7 +3338,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: eb062745e277b4840b00d8a03bb0ee26, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300000, guid: 52f914c6cca11db479b09ca8ab06b955, type: 3}
-  - m_RefCount: 36
+  - m_RefCount: 34
     m_Data: {fileID: 21300000, guid: e84f203e1343d4042b692bd5b5f6c482, type: 3}
   - m_RefCount: 24
     m_Data: {fileID: 21300000, guid: 614ffb792c67101448f9f8a622519b68, type: 3}
@@ -3361,7 +3369,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 481a4b76fe690064d86c028f6a9a7bb5, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 159
+  - m_RefCount: 157
     m_Data:
       e00: 1
       e01: 0
@@ -3380,7 +3388,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 159
+  - m_RefCount: 157
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3516,6 +3524,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -3683,6 +3695,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -6491,6 +6507,15 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: -15, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: 7, y: 2, z: 0}
     second:
       serializedVersion: 2
@@ -6528,6 +6553,15 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
   - first: {x: -17, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 5
+      m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: -15, y: 3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 5
@@ -7421,7 +7455,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 323
+  - m_RefCount: 325
     m_Data: {fileID: 11400000, guid: 9d671182f1826e84abeda6b7419b2170, type: 2}
   - m_RefCount: 14
     m_Data: {fileID: 11400000, guid: a390d8fc0da15d9429e355fbd47424f1, type: 2}
@@ -7442,7 +7476,7 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 7a644b79061b248498240754e294f1c4, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 323
+  - m_RefCount: 325
     m_Data: {fileID: 21300000, guid: e84f203e1343d4042b692bd5b5f6c482, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: 21300000, guid: fa77d6bcad073ee4196a8becb12dc508, type: 3}
@@ -7453,7 +7487,7 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 21300000, guid: 49cedbcb657070f4bbd05d88c4ad65e3, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 402
+  - m_RefCount: 404
     m_Data:
       e00: 1
       e01: 0
@@ -7472,7 +7506,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 402
+  - m_RefCount: 404
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -7774,6 +7808,10 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap (6)
@@ -7964,6 +8002,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -8248,6 +8290,10 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap (9)
@@ -8332,6 +8378,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
@@ -8709,6 +8759,10 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap (10)
@@ -9008,6 +9062,10 @@ PrefabInstance:
       propertyPath: active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap (4)
@@ -9092,6 +9150,10 @@ PrefabInstance:
     - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: active
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
+      propertyPath: projectileSpeed
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name

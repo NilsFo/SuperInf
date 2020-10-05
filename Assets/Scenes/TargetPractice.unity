@@ -5781,6 +5781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ende
       objectReference: {fileID: 0}
+    - target: {fileID: 5392619610789952922, guid: ca8eb26a44a0e904f937323fccc993fd, type: 3}
+      propertyPath: nextLevel
+      value: Level PQ 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5392619610789952923, guid: ca8eb26a44a0e904f937323fccc993fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.48
