@@ -76,13 +76,6 @@ public class Recorder : MonoBehaviour
         // Visual & Audio stuff
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.4f);
         levelUI?.StartRecording();
-
-        // Tutorial Stuff
-        if (tutorialMessageObj)
-        {
-            SpriteRenderer tutRenderer = tutorialMessageObj.GetComponent<SpriteRenderer>();
-            tutRenderer.enabled = true;
-        }
     }
 
 
@@ -101,6 +94,13 @@ public class Recorder : MonoBehaviour
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.2f);
         ShowLastRecordingStillframe();
         levelUI?.StopRecording();
+
+        // Tutorial Spagetti (Hmm, so filling!)
+        if (tutorialMessageObj)
+        {
+            SpriteRenderer tutRenderer = tutorialMessageObj.GetComponent<SpriteRenderer>();
+            tutRenderer.enabled = true;
+        }
     }
 
     public void ShowLastRecordingStillframe() {

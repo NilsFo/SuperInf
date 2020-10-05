@@ -14,6 +14,7 @@ public class LevelUIBehaviour : MonoBehaviour
 
     public GameObject recStatusImage;
     public GameObject pickupMessage;
+    public String levelName = "";
 
     private Image rectImg;
     private float deltaCounter=0;
