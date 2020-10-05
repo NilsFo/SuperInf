@@ -146,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBurned: 0
   goodSprite: {fileID: 21300000, guid: 8ecc8b2489faa8848b14a61c87d54a0d, type: 3}
-  burnedSprite: {fileID: 21300000, guid: 7b9060fcedfa424438ab1aeef310addf, type: 3}
+  burnedSprite: {fileID: 21300000, guid: d65237652082f014a9523404b3973a54, type: 3}
   spriteRenderer: {fileID: 5135598918295808734}
   buttonListener: []
+  activateTime: 0
