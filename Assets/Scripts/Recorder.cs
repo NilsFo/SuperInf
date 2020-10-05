@@ -7,6 +7,7 @@ public class Recorder : MonoBehaviour
 {
     public Collider2D recordingArea;
     public GameObject levelUIManagerObj;
+    public GameObject tutorialMessageObj;
 
     private float recordingStartTime;
     private LevelUIBehaviour levelUI;
@@ -75,6 +76,13 @@ public class Recorder : MonoBehaviour
         // Visual & Audio stuff
         GetComponentInChildren<SpriteRenderer>().color = new Color(1,1,1,0.4f);
         levelUI?.StartRecording();
+
+        // Tutorial Stuff
+        if (tutorialMessageObj)
+        {
+            SpriteRenderer tutRenderer = tutorialMessageObj.GetComponent<SpriteRenderer>();
+            tutRenderer.enabled = true;
+        }
     }
 
 
