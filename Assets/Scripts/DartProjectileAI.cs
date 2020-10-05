@@ -8,6 +8,7 @@ public class DartProjectileAI : MonoBehaviour
 {
 
     public Vector3 velocity = new Vector3(0, 0, 0);
+    private new Rigidbody2D rigidbody2D;
     public GameObject mySpawner;
     public BoxCollider2D horizontalColider;
     public BoxCollider2D verticalColider;
@@ -22,20 +23,25 @@ public class DartProjectileAI : MonoBehaviour
         //print("Ruun! This Dart projectile is coming for you!!");
         anim = GetComponent<Animator>();
         anim.SetBool("burning", false);
+        rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    void FixedUpdate() {
+        rigidbody2D.velocity = velocity;
     }
 
     // Update is called once per frame
     void Update()
     {
         // Movement
-        float x = transform.position.x;
+        /*float x = transform.position.x;
         float y = transform.position.y;
         float z = transform.position.z;
 
         float xv = velocity.x;
         float yv = velocity.y;
         float zv = velocity.z;
-        transform.position = new Vector3(x + xv, y + yv, z + zv);
+        transform.position = new Vector3(x + xv, y + yv, z + zv);*/
     }
 
     private void OnDartHit(GameObject target)

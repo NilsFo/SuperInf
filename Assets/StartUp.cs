@@ -25,6 +25,8 @@ public class StartUp : MonoBehaviour
             tmp = text.color;
             tmp.a = ((timeToFade-_currentTime)/timeToFade);
             text.color = tmp;
+        } else {
+            Destroy(gameObject);
         }
     }
 }

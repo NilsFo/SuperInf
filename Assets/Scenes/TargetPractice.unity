@@ -5281,10 +5281,6 @@ PrefabInstance:
       propertyPath: direction
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7519211786955999660, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
-      propertyPath: projectileSpeed
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 7519211786955999663, guid: 51a9e5a27d7cae6409cc3eaa15179754, type: 3}
       propertyPath: m_Name
       value: DartTrap

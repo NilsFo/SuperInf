@@ -100,7 +100,7 @@ MonoBehaviour:
   active: 1
   projectileCooldown: 1.12
   projectilePrefab: {fileID: 3566823745499365322, guid: 9586208263d19fb4cb04f177c3cfe62a, type: 3}
-  projectileSpeed: 0.1
+  projectileSpeed: 4
   direction: 3
   initialDelay: 0
 --- !u!61 &7519211786955999656
