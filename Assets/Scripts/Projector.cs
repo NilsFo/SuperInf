@@ -15,6 +15,8 @@ public class Projector : MonoBehaviour
     private int playbackFrame;
     private List<Projection> projections = new List<Projection>();
     private Dictionary<Projection, List<RecordingFrame>> frameIterators = new Dictionary<Projection, List<RecordingFrame>>();
+    
+    public Dictionary<DartTrapAI,float> darttrapOffsets = new Dictionary<DartTrapAI, float>();
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,15 @@ public class Projector : MonoBehaviour
         if(playbackTime >= recording.length) {
             playbackTime -= recording.length;
             playbackFrame = 1;
+
+            // Reset Dart timer
+            foreach(var p in projections) {
+                DartTrapAI trap = p.GetComponent<DartTrapAI>();
+                if (trap)
+                {
+                    trap.SetCurrentOffset(darttrapOffsets[trap]);
+                }
+            }
         }
         foreach(Projection projection in projections) {
             // Get the current transforms for the timestamp
@@ -102,6 +113,14 @@ public class Projector : MonoBehaviour
             if (ws)
             {
                 ws.enabled = false;
+            }
+            
+            DartTrapAI trap = g.GetComponent<DartTrapAI>();
+            if (trap)
+            {
+                var t = p.GetComponent<DartTrapAI>();
+                t.SetCurrentOffset(recording.darttrapOffsets[trap]);
+                darttrapOffsets.Add(t, recording.darttrapOffsets[trap]);
             }
         }
 

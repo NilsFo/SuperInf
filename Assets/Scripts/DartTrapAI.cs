@@ -20,12 +20,11 @@ public class DartTrapAI : ButtonListener
     public Direction direction = Direction.South;
     public float initialDelay = 0.0f;
 
-    private float deltaCounter;
+    private float deltaCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        deltaCounter = 0;
         print("Dart-Trap, reporting for duty.");
     }
 
@@ -117,5 +116,12 @@ public class DartTrapAI : ButtonListener
     public override void OnButtonTriggerExit(GameObject source)
     {
         
+    }
+
+    public float GetCurrentOffset() {
+        return deltaCounter;
+    }
+    public void SetCurrentOffset(float f) {
+        deltaCounter = f;
     }
 }
