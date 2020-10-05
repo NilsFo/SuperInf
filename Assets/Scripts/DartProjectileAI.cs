@@ -70,7 +70,7 @@ public class DartProjectileAI : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject source = other.gameObject;
-        print("The dart projectile has connected with "+ source + "!");
+        //print("The dart projectile has connected with "+ source + "!");
 
         // Check if colliding with a Brazier
         BrazierAI bzai = source.GetComponent<BrazierAI>();

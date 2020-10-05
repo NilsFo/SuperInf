@@ -17,6 +17,7 @@ public class Projector : MonoBehaviour
     private Dictionary<Projection, List<RecordingFrame>> frameIterators = new Dictionary<Projection, List<RecordingFrame>>();
     
     public Dictionary<DartTrapAI,float> darttrapOffsets = new Dictionary<DartTrapAI, float>();
+
     // Start is called before the first frame update
     void Start()
     {
