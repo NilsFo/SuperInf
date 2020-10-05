@@ -343,6 +343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ende
       objectReference: {fileID: 0}
+    - target: {fileID: 5392619610789952922, guid: ca8eb26a44a0e904f937323fccc993fd, type: 3}
+      propertyPath: nextLevel
+      value: TargetPractice
+      objectReference: {fileID: 0}
     - target: {fileID: 5392619610789952923, guid: ca8eb26a44a0e904f937323fccc993fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.499
@@ -1341,6 +1345,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 714611923}
+    - target: {fileID: 1564589446113467724, guid: 30363d1376c94164dbbc2d5c77e55b3a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1564589446113467725, guid: 30363d1376c94164dbbc2d5c77e55b3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5217,7 +5225,7 @@ MonoBehaviour:
       - {x: 12.160113, y: 0.007412903, z: 0}
       - {x: -7.7967644, y: -0.1580431, z: 0}
       isClosed: 1
-      space: 1
+      space: 0
       controlMode: 0
       autoControlLength: 0.3
       boundsUpToDate: 0
@@ -5229,7 +5237,7 @@ MonoBehaviour:
       - 0
       globalNormalsAngle: 0
       flipNormals: 0
-    vertexPathUpToDate: 0
+    vertexPathUpToDate: 1
     vertexPathMaxAngleError: 0.3
     vertexPathMinVertexSpacing: 0.01
     showTransformTool: 1
