@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     Camera cam;
     Vector3 camPos = new Vector3(0, 0, -10);
     public Projector projectorPrefab;
+    public UnityEngine.Tilemaps.Tilemap floorTilemap;
     private int _lookDirection;
     public int LookDirection { 
         get{return _lookDirection;}
@@ -82,10 +83,12 @@ public class PlayerController : MonoBehaviour
                         cameraInHand.gameObject.SetActive(true);
                     }
                 } else {
-                    // Put it down and start
-                    var p = Instantiate<Projector>(projectorPrefab, cameraInHand.transform.position, cameraInHand.transform.rotation);
-                    p.StartProjection(cameraInHand.GetLastRecording());
-                    cameraInHand.gameObject.SetActive(false);
+                    if((!floorTilemap?.GetTile(floorTilemap.WorldToCell(this.transform.position))?.name.Equals("gitter")) ?? true) {
+                        // Put it down and start
+                        var p = Instantiate<Projector>(projectorPrefab, cameraInHand.transform.position, cameraInHand.transform.rotation);
+                        p.StartProjection(cameraInHand.GetLastRecording());
+                        cameraInHand.gameObject.SetActive(false);
+                    }
                 }
             }
         }
