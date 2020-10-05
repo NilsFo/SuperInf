@@ -13,6 +13,8 @@ public class RopeAI : MonoBehaviour
     private bool _renderState;
     
     public ButtonListener[] buttonListener;
+    public float activateTime = 0;
+    private float _activateTimer = 0;
 
     private void OnEnable()
     {
@@ -28,12 +30,27 @@ public class RopeAI : MonoBehaviour
     
     void Update()
     {
+        if(activateTime > 0) {
+            if(_activateTimer > 0) {
+                _activateTimer -= Time.deltaTime;
+                if(_activateTimer <= 0) {
+                    isBurned = false;
+                    for (int i = 0; i < buttonListener.Length; i++)
+                    {
+                        ButtonListener myListener = buttonListener[i];
+                        myListener.OnButtonTrigger(gameObject);
+                        myListener.OnButtonTriggerExit(gameObject);
+                    }
+                }
+            }
+
+        }
         if (_renderState != isBurned)
         {
             if (isBurned)
             {
                 spriteRenderer.sprite = burnedSprite;
-            } 
+            }
             else
             {
                 spriteRenderer.sprite = goodSprite;
@@ -45,7 +62,7 @@ public class RopeAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Sharp mySharp = other.gameObject.GetComponent<Sharp>();
-        if (!isBurned && mySharp && mySharp.sharpness == Sharpness.Burning)
+        if (!isBurned && mySharp && (mySharp.sharpness == Sharpness.Burning || mySharp.sharpness == Sharpness.Normal))
         {
             for (int i = 0; i < buttonListener.Length; i++)
             {
@@ -55,6 +72,9 @@ public class RopeAI : MonoBehaviour
             }
             
             isBurned = true;
+            if(activateTime > 0) {
+                _activateTimer = activateTime;
+            }
         }
     }
 }

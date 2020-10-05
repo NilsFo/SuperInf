@@ -9,6 +9,9 @@ public class DartProjectileAI : MonoBehaviour
 
     public Vector3 velocity = new Vector3(0, 0, 0);
     public GameObject mySpawner;
+    public BoxCollider2D horizontalColider;
+    public BoxCollider2D verticalColider;
+
     private float lifespan = 10;
     private float deltaCounter;
     private Animator anim;
@@ -16,7 +19,7 @@ public class DartProjectileAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Ruun! This Dart projectile is coming for you!!");
+        //print("Ruun! This Dart projectile is coming for you!!");
         anim = GetComponent<Animator>();
         anim.SetBool("burning", false);
     }
@@ -37,7 +40,7 @@ public class DartProjectileAI : MonoBehaviour
 
     private void OnDartHit(GameObject target)
     {
-        print("The dart projectile has connected with "+ target + "! Haha, die, Trash!");
+        //print("The dart projectile has connected with "+ target + "! Haha, die, Trash!");
         Destroy(this.gameObject);
 
         //Collision with Player:
@@ -67,6 +70,7 @@ public class DartProjectileAI : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject source = other.gameObject;
+        print("The dart projectile has connected with "+ source + "!");
 
         // Check if colliding with a Brazier
         BrazierAI bzai = source.GetComponent<BrazierAI>();
@@ -80,6 +84,13 @@ public class DartProjectileAI : MonoBehaviour
 
         // Check if colliding with the original spawning Dart Trap.
         if(source == mySpawner)
+        {
+            return;
+        }
+
+        // Check if colliding with another dart.
+        DartTrapAI dtai = source.GetComponent<DartTrapAI>();
+        if (dtai)
         {
             return;
         }

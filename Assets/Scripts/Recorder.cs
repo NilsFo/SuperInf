@@ -69,7 +69,7 @@ public class Recorder : MonoBehaviour
             recordingstatus = Recordingstatus.NO_RECORDING;
             return;
         }
-        lastRecording = new Recording(getObjectsToRecord());
+        lastRecording = new Recording(getObjectsToRecord(), GetComponentInParent<PlayerController>().LookDirection);
         lastRecording.recordFrame(0, this.transform);
 
         // Visual & Audio stuff
@@ -96,6 +96,7 @@ public class Recorder : MonoBehaviour
     }
 
     public void ShowLastRecordingStillframe() {
+        RemoveLastRecordingStillframes();
         if(lastRecording == null) {
             return;
         }
@@ -148,6 +149,10 @@ public class Recorder : MonoBehaviour
     public void OnDartHit()
     {
         //TODO implement
+    }
+
+    public void SetLastRecording(Recording recording) {
+        this.lastRecording = recording;
     }
 
 

@@ -8,25 +8,24 @@ public class DartTrapAI : ButtonListener
     public enum Direction: UInt16
     {
         North,
-        West,
+        East,
         South,
-        East
+        West
     } 
 
     public bool active = true;
     public float projectileCooldown = 1.5f;
-    public float projectileVelocity = 4f;
     public GameObject projectilePrefab;
     public float projectileSpeed = .1f;
     public Direction direction = Direction.South;
+    public float initialDelay = 0.0f;
 
-    private float deltaCounter;
+    private float deltaCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        deltaCounter = 0;
-        print("Dart-Trap, reporting for duty.");
+        //print("Dart-Trap, reporting for duty.");
     }
 
     // Update is called once per frame
@@ -67,20 +66,27 @@ public class DartTrapAI : ButtonListener
         velocity = rot * velocity;
 
         //Checking for basic orientation
-        Quaternion diretionQuat = Quaternion.Euler(0, 0, 0); ;
+        Quaternion diretionQuat = Quaternion.Euler(0, 0, 0);
+        bool vertCol = false;
+        bool horzCol = false;
+
         switch (direction)
         {
             case Direction.North:
                 diretionQuat = Quaternion.Euler(0, 0, 90);
+                vertCol = true;
                 break;
             case Direction.East:
-                diretionQuat = Quaternion.Euler(0, 0, 180);
+                diretionQuat = Quaternion.Euler(0, 0, 0);
+                horzCol = true;
                 break;
             case Direction.South:
                 diretionQuat = Quaternion.Euler(0, 0, -90);
+                vertCol = true;
                 break;
             case Direction.West:
-                diretionQuat = Quaternion.Euler(0, 0, 0);
+                diretionQuat = Quaternion.Euler(0, 0, 180);
+                horzCol = true;
                 break;
             default:
                 new Exception("Unknown angle!");
@@ -96,6 +102,9 @@ public class DartTrapAI : ButtonListener
         {
             dpi.velocity = velocity;
             dpi.mySpawner = this.gameObject;
+
+            dpi.horizontalColider.enabled = horzCol;
+            dpi.verticalColider.enabled = vertCol;
         }
     }
 
@@ -107,5 +116,12 @@ public class DartTrapAI : ButtonListener
     public override void OnButtonTriggerExit(GameObject source)
     {
         
+    }
+
+    public float GetCurrentOffset() {
+        return deltaCounter;
+    }
+    public void SetCurrentOffset(float f) {
+        deltaCounter = f;
     }
 }
